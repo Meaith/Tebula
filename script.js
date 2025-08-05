@@ -1,0 +1,104 @@
+// Theme toggle
+const btn = document.getElementById('theme-toggle');
+const html = document.documentElement;
+if(localStorage.getItem('theme')==='dark') {
+  html.classList.add('dark');
+  btn.textContent='☀️';
+}
+btn.addEventListener('click',()=>{
+  html.classList.toggle('dark');
+  const dark=html.classList.contains('dark');
+  btn.textContent=dark?'☀️':'🌙';
+  localStorage.setItem('theme', dark?'dark':'light');
+});
+
+// Hamburger toggle
+const hamb = document.getElementById('hamburger');
+const nav = document.getElementById('nav');
+hamb.addEventListener('click',()=> nav.classList.toggle('open'));
+
+// Page transition
+window.addEventListener('load', ()=> document.body.classList.add('loaded'));
+
+// Initialize AOS animations
+// document.addEventListener('DOMContentLoaded', () => AOS.init({ once: true }));
+
+// Smooth scroll fallback (optional)
+document.querySelectorAll('a[href^="#"]').forEach(link=>{
+  link.addEventListener('click', e=>{
+    e.preventDefault();
+    document.querySelector(link.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+    nav.classList.remove('open');
+  });
+});
+
+
+// Carousel setup
+const track = document.querySelector('.carousel-track');
+const slides = Array.from(track.children);
+const nextButton = document.querySelector('.next');
+const prevButton = document.querySelector('.prev');
+
+let slideWidth = slides[0].getBoundingClientRect().width;
+let currentIndex = 0;
+
+// Arrange the slides next to each other
+function setSlidePosition() {
+  slideWidth = slides[0].getBoundingClientRect().width;
+  slides.forEach((slide, index) => {
+    slide.style.left = slideWidth * index + 'px';
+  });
+}
+setSlidePosition();
+
+window.addEventListener('resize', () => {
+  setSlidePosition();
+  moveToSlide(currentIndex);
+});
+
+// Move to slide function
+function moveToSlide(index) {
+  if (index < 0) {
+    currentIndex = slides.length - visibleSlides();
+  } else if (index > slides.length - visibleSlides()) {
+    currentIndex = 0;
+  } else {
+    currentIndex = index;
+  }
+  const amountToMove = slides[currentIndex].style.left;
+  track.style.transform = 'translateX(-' + amountToMove + ')';
+}
+
+// Calculate how many slides visible
+function visibleSlides() {
+  if(window.innerWidth <= 600) return 1;
+  if(window.innerWidth <= 900) return 2;
+  return 3;
+}
+
+// Button event listeners
+nextButton.addEventListener('click', () => {
+  moveToSlide(currentIndex + 1);
+});
+
+prevButton.addEventListener('click', () => {
+  moveToSlide(currentIndex - 1);
+});
+
+// Auto slide every 5 seconds
+let autoSlideInterval = setInterval(() => {
+  moveToSlide(currentIndex + 1);
+}, 5000);
+
+function resetAutoSlide() {
+  clearInterval(autoSlideInterval);
+  autoSlideInterval = setInterval(() => {
+    moveToSlide(currentIndex + 1);
+  }, 5000);
+}
+
+nextButton.addEventListener('click', resetAutoSlide);
+prevButton.addEventListener('click', resetAutoSlide);
+
+// Initialize position
+moveToSlide(0);
