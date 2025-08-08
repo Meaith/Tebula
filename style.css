@@ -7,6 +7,9 @@
   --footer-bg: #222;
   --hover: #000;
   --hover-text: #fff;
+  --btn-hover: #f3f3f3a9;
+  --box-shadow: rgba(0, 0, 0, 0.1);
+  --box-shadow-hover: rgba(0, 0, 0, 0.15);
 }
 
 html.dark { 
@@ -18,6 +21,9 @@ html.dark {
   --footer-bg: #111; 
   --hover: #fff;
   --hover-text: #000;
+  --btn-hover: #333;
+  --box-shadow: rgba(146, 137, 137, 0.566);
+  --box-shadow-hover: rgba(234, 225, 225, 0.382);
 }
 
 *, *::before, *::after { 
@@ -64,10 +70,12 @@ header {
   width:90%; 
   max-width:1200px; 
   margin:auto; 
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .logo { 
-  float:left; 
   font-size:1.5rem; 
 }
 
@@ -75,9 +83,6 @@ header {
   width: 60px;
 } */
 
-nav { 
-  float:right; 
-}
 #hamburger { 
   display: none; 
   font-size:1.5rem; 
@@ -86,19 +91,13 @@ nav {
 }
 
 nav ul { 
-  list-style: none; 
   display: flex; 
   align-items:center; 
+  gap: 0 25px;
 }
-
-nav ul li { 
-  margin-left: 20px; 
-}
-
-
 
 nav a, nav button { 
-  color: #fff; 
+  color: white; 
   text-decoration:none;
   background:none; 
   border:none; 
@@ -173,8 +172,7 @@ h2 {
   padding:30px; 
   border-radius:8px; 
   box-shadow:0 2px 8px rgba(0,0,0,0.1);
-  transition: .5s; 
-  cursor: pointer;
+  transition: .5s;
 }
 .card:hover { 
   transform:translateY(-5px); 
@@ -214,6 +212,142 @@ h2 {
 
 .portfolio-item:hover{
   scale: 1.05;
+}
+
+
+/* PRICING SECTION. */
+.pricing-section {
+  padding: 2rem;
+}
+
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2rem;
+}
+.toggle-label {
+  font-weight: 500;
+}
+.toggle-button {
+  width: 50px;
+  height: 26px;
+  background-color: #ccc;
+  border-radius: 50px;
+  position: relative;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.toggle-button.active {
+  background-color: #3b82f6;
+}
+.toggle-thumb {
+  width: 22px;
+  height: 22px;
+  background-color: white;
+  border-radius: 50%;
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  transition: left 0.3s ease;
+}
+.toggle-button.active .toggle-thumb {
+  left: 26px;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.plan-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+@media (min-width: 768px) {
+  .plan-container {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.plan-card {
+  flex: 1;
+  background-color: var(--bg);
+  border-radius: 1rem;
+  box-shadow: 0 4px 6px var(--box-shadow);
+  padding: 1.5rem;
+  transition: 0.5s;
+}
+.plan-card:hover {
+  box-shadow: 0 8px 12px var(--box-shadow-hover);
+}
+
+.plan-card h3 {
+  font-size: 1.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.price {
+  font-size: 1.75rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.price span {
+  font-size: 0.875rem;
+  font-weight: normal;
+}
+
+.plan-card ul {
+  list-style: none;
+  padding: 0;
+  margin-bottom: 1.5rem;
+}
+
+.plan-card ul li {
+  font-size: 0.875rem;
+  margin-bottom: 0.5rem;
+}
+
+.plan-card button {
+  width: 100%;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  background-color: #3b82f6;
+  color: white;
+  transition: background-color 0.3s;
+  cursor: pointer;
+}
+.plan-card button:hover {
+  background-color: #2563eb;
+}
+
+
+/* Fade-in Animation */
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeIn 0.8s ease-out forwards;
+}
+.delay-100 {
+  animation-delay: 0.1s;
+}
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Carousel Container & Track */
@@ -331,7 +465,10 @@ h2 {
 }
 
 
-
+.contact .container{
+  display: flex;
+  flex-direction: column;
+}
 
 form { 
   max-width:600px; 
@@ -368,9 +505,13 @@ button[type=submit]:hover {
 
 footer { 
   background: var(--footer-bg); 
-  color: var(--text); 
+  color: #fff; 
   text-align:center; 
   padding:20px 0; 
+}
+
+footer p{ 
+  width: 100%;
 }
 
 
@@ -379,14 +520,23 @@ footer {
 
 /* MOBILE MENU */
 @media(max-width:768px){
+  header{
+    background-color: var(--bg);
+  }
+
   .container{
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
+
+  .logo{
+    color: var(--text);
+  }
+
   #hamburger { 
     display: block; 
-    color: #fff; 
+    color: var(--text); 
     cursor: pointer;
   }
   nav { 
@@ -395,24 +545,41 @@ footer {
     right: -100%; 
     width: 50%; 
     background: var(--bg); 
-    transition: right .3s; 
+    transition: right .8s; 
   }
   nav.open { 
     right: 0; 
   }
   nav ul { 
     flex-direction: column; 
-    gap:20px; 
-    /* padding: 10px 0px;  */
+    gap: 0 20px; 
+    align-items: center;
+    width: 100%;
   }
 
-  nav ul li{
-    margin: 0;
-  }
-
-  nav ul li a{
+  nav a{
     color: var(--text);
-    padding: 10px;
+    width: 100%;
+    text-align: center;
+    padding: 15px 0;
+    margin: 0;
+    transition: .5s;
+    border-bottom: 2px solid #333;
+  }
+
+  nav a:hover{
+    background-color: var(--hover);
+    color: var(--hover-text);
+  }
+
+  nav button{
+    width: 100%;
+    padding: 10px 0;
+    transition: .5s;
+  }
+
+  nav button:hover{
+    background-color: var(--btn-hover);
   }
 
   .contact .container{
@@ -441,3 +608,45 @@ body.loaded .page-transition {
 /* AOS overrides */
 [data-aos] { opacity: 0; transition-property: opacity, transform; }
 [data-aos].aos-animate { opacity:1; }
+
+
+
+
+
+
+/* .plan {
+      border: 1px solid #ddd;
+      border-radius: 8px;
+      padding: 1rem;
+      margin: 1rem;
+      text-align: center;
+      max-width: 300px;
+    }
+
+    .plans-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .plan-title {
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+
+    .plan-button {
+      margin-top: 1rem;
+      padding: 0.7rem 1.5rem;
+      border: none;
+      background-color: #3b82f6;
+      color: white;
+      font-size: 1rem;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+
+    .plan-button:hover {
+      background-color: #2563eb;
+    } */

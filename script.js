@@ -32,6 +32,31 @@ document.querySelectorAll('a[href^="#"]').forEach(link=>{
   });
 });
 
+//subscription plans
+// Monthly vs Yearly toggle
+function toggleBillingUI(element) {
+  element.classList.toggle('active');
+  const isYearly = element.classList.contains('active');
+  const prices = document.querySelectorAll('.price');
+
+  prices.forEach(price => {
+    const monthly = price.getAttribute('data-monthly');
+    const yearly = price.getAttribute('data-yearly');
+    if (monthly && yearly) {
+      price.innerHTML = isYearly
+        ? yearly + '<span>/year</span>'
+        : monthly + '<span>/month</span>';
+    }
+  });
+}
+
+// checkout function
+ function goToCheckout(plan) {
+      window.location.href = `checkout-page.html?plan=${encodeURIComponent(plan)}`;
+    }
+
+
+
 
 // Carousel setup
 const track = document.querySelector('.carousel-track');

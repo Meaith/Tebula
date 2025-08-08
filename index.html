@@ -16,17 +16,18 @@
       <button id="hamburger" aria-label="Menu">☰</button>
       <nav id="nav">
         <ul>
-          <li><a href="#about">About</a></li>
-          <li><a href="#services">Services</a></li>
-          <li><a href="#portfolio">Portfolio</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><button id="theme-toggle">🌙</button></li>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#pricing">Plans</a>
+          <a href="#contact">Contact</a>
+          <button id="theme-toggle">🌙</button>
         </ul>
       </nav>
     </div>
   </header>
 
-  <section class="hero" style="background-image: url('./medias/13f96ed981ca12f0c22e4eea9866bb5b.jpg');">
+  <section class="hero" style="background-image: url('./medias/pexels-fabiano-rodrigues-794857-1662298.jpg');">
     <div class="container">
       <h2>We Build Digital Experiences</h2>
       <p>From sleek websites to stunning visuals and dynamic video production.</p>
@@ -64,52 +65,177 @@
   <section id="portfolio" class="portfolio">
     <div class="container">
       <h2>Our Work</h2>
+
       <div class="portfolio-grid">
-        <div class="portfolio-item" style="background-image: url('./medias/13f96ed981ca12f0c22e4eea9866bb5b.jpg');">Project Alpha</div>
-        <div class="portfolio-item">Project Beta</div>
-        <div class="portfolio-item">Project Gamma</div>
-        <div class="portfolio-item">Project 1</div>
-        <div class="portfolio-item">Project 2</div>
-        <div class="portfolio-item">Project 3</div>
-        <div class="portfolio-item">Project 4</div>
-        <div class="portfolio-item">Project 5</div>
+        
+      </div>
+      
+    </div>
+  </section>
+
+
+  
+  <section class="pricing-section" id="pricing">
+    <h2 class="section-title">Choose Your Plan</h2>
+
+    <!-- Toggle Switch -->
+    <div class="billing-toggle">
+      <div class="toggle-wrapper">
+        <span class="toggle-label">Monthly</span>
+        <div class="toggle-button" onclick="toggleBillingUI(this)">
+          <div class="toggle-thumb"></div>
+        </div>
+        <span class="toggle-label">Yearly</span>
+      </div>
+    </div>
+
+    <div class="plan-container">
+      <!-- Starter Plan -->
+      <div class="plan-card fade-in">
+        <img src="starter-icon.svg" alt="Starter Icon" class="plan-icon">
+        <h3>Starter</h3>
+        <p class="price" data-monthly="₦0" data-yearly="₦0">₦0<span>/month</span></p>
+        <ul>
+          <li>1 Design or Edit per Month</li>
+          <li>Basic Website Template Access</li>
+          <li>Community Support</li>
+          <li>Watermarked Deliverables</li>
+        </ul>
+        <button onclick="goToCheckout('starter')">Get Started Free</button>
+      </div>
+
+      <!-- Pro Plan -->
+      <div class="plan-card fade-in delay-100">
+        <img src="pro-icon.svg" alt="Pro Icon" class="plan-icon">
+        <h3>Pro</h3>
+        <p class="price" data-monthly="₦118,500" data-yearly="₦1,185,000">₦118,500<span>/month</span></p>
+        <ul>
+          <li>Up to 10 Projects/Month</li>
+          <li>Custom Website Design (Up to 5 Pages)</li>
+          <li>Social Media Graphics & Reels</li>
+          <li>2 Video Edits (Up to 2 Min Each)</li>
+          <li>3-Day Turnaround</li>
+          <li>Email Support</li>
+        </ul>
+        <button onclick="goToCheckout('pro')">Start 7-Day Free Trial</button>
+      </div>
+
+      <!-- Enterprise Plan -->
+      <div class="plan-card fade-in delay-200">
+        <img src="enterprise-icon.svg" alt="Enterprise Icon" class="plan-icon">
+        <h3>Enterprise</h3>
+        <p class="price" data-monthly="Custom" data-yearly="Custom">Custom Pricing</p>
+        <ul>
+          <li>Unlimited Projects</li>
+          <li>Custom Web Solutions (eComm, Portfolios, etc.)</li>
+          <li>Brand Identity Kit & Graphic Suite</li>
+          <li>Full-Length Videos & Commercial Edits</li>
+          <li>24-48 Hour Turnaround</li>
+          <li>Dedicated Manager</li>
+        </ul>
+        <button onclick="goToCheckout('enterprise')">Contact Sales</button>
       </div>
     </div>
   </section>
 
-<section id="testimonials" class="testimonials">
-  <div class="container">
-    <h2>What Our Clients Say</h2>
-    <div class="carousel">
-      <button class="prev" aria-label="Previous testimonial">&#10094;</button>
-      <div class="carousel-track-container">
-        <ul class="carousel-track">
-          <li class="carousel-slide">
-            <p>"Tebula brought our website to life with amazing design and flawless code!"</p>
-            <h4>– Sarah Johnson, CEO of BrightStart</h4>
-          </li>
-          <li class="carousel-slide">
-            <p>"Professional and creative — their videography made our brand story unforgettable."</p>
-            <h4>– David Lee, Marketing Head at WaveMedia</h4>
-          </li>
-          <li class="carousel-slide">
-            <p>"Their team delivered exactly what we needed on time. Highly recommend for web dev and design."</p>
-            <h4>– Priya Patel, Founder of EcoGoods</h4>
-          </li>
-          <li class="carousel-slide">
-            <p>"Great communication and fast turnaround. Our visuals have never looked better!"</p>
-            <h4>– James Wong, CTO at NextGen Apps</h4>
-          </li>
-          <li class="carousel-slide">
-            <p>"From concept to launch, the Tebula team was responsive and talented."</p>
-            <h4>– Anna Smith, Founder of Green Leaf Co.</h4>
-          </li>
-        </ul>
-      </div>
-      <button class="next" aria-label="Next testimonial">&#10095;</button>
+
+  <!--PREVIOUS SUBSCRIPTION PLANS-->
+
+  <!-- <h1 style="text-align:center;">Our Subscription Plans</h1>
+  <div class="plans-container">
+    <div class="plan">
+      <div class="plan-title">Starter</div>
+      <p>$0 / month</p>
+      <button class="plan-button" onclick="goToCheckout('starter')">Start Free Trial</button>
     </div>
-  </div>
-</section>
+
+    <div class="plan">
+      <div class="plan-title">Pro</div>
+      <p>$79 / month</p>
+      <button class="plan-button" onclick="goToCheckout('pro')">Start Free Trial</button>
+    </div>
+
+    <div class="plan">
+      <div class="plan-title">Enterprise</div>
+      <p>Custom Pricing</p>
+      <button class="plan-button" onclick="goToCheckout('enterprise')">Contact Sales</button>
+    </div>
+
+    <div class="plan">
+      <div class="plan-title">Web Basic</div>
+      <p>$99 / month</p>
+      <button class="plan-button" onclick="goToCheckout('web-basic')">Choose Plan</button>
+    </div>
+
+    <div class="plan">
+      <div class="plan-title">Web Premium</div>
+      <p>$299 / month</p>
+      <button class="plan-button" onclick="goToCheckout('web-premium')">Choose Plan</button>
+    </div>
+
+    <div class="plan">
+      <div class="plan-title">Graphics Basic</div>
+      <p>$59 / month</p>
+      <button class="plan-button" onclick="goToCheckout('graphics-basic')">Choose Plan</button>
+    </div>
+
+    <div class="plan">
+      <div class="plan-title">Graphics Pro</div>
+      <p>$149 / month</p>
+      <button class="plan-button" onclick="goToCheckout('graphics-pro')">Choose Plan</button>
+    </div>
+
+    <div class="plan">
+      <div class="plan-title">Video Basic</div>
+      <p>$89 / month</p>
+      <button class="plan-button" onclick="goToCheckout('video-basic')">Choose Plan</button>
+    </div>
+
+    <div class="plan">
+      <div class="plan-title">Video Pro</div>
+      <p>$199 / month</p>
+      <button class="plan-button" onclick="goToCheckout('video-pro')">Choose Plan</button>
+    </div>
+  </div> -->
+
+
+
+
+
+
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <h2>What Our Clients Say</h2>
+      <div class="carousel">
+        <button class="prev" aria-label="Previous testimonial">&#10094;</button>
+        <div class="carousel-track-container">
+          <ul class="carousel-track">
+            <li class="carousel-slide">
+              <p>"Tebula brought our website to life with amazing design and flawless code!"</p>
+              <h4>– Sarah Johnson, CEO of BrightStart</h4>
+            </li>
+            <li class="carousel-slide">
+              <p>"Professional and creative — their videography made our brand story unforgettable."</p>
+              <h4>– David Lee, Marketing Head at WaveMedia</h4>
+            </li>
+            <li class="carousel-slide">
+              <p>"Their team delivered exactly what we needed on time. Highly recommend for web dev and design."</p>
+              <h4>– Priya Patel, Founder of EcoGoods</h4>
+            </li>
+            <li class="carousel-slide">
+              <p>"Great communication and fast turnaround. Our visuals have never looked better!"</p>
+              <h4>– James Wong, CTO at NextGen Apps</h4>
+            </li>
+            <li class="carousel-slide">
+              <p>"From concept to launch, the Tebula team was responsive and talented."</p>
+              <h4>– Anna Smith, Founder of Green Leaf Co.</h4>
+            </li>
+          </ul>
+        </div>
+        <button class="next" aria-label="Next testimonial">&#10095;</button>
+      </div>
+    </div>
+  </section>
 
 
 
@@ -133,5 +259,6 @@
   </footer>
 
   <script src="script.js"></script>
+  <script src="projects.js"></script>
 </body>
 </html>
