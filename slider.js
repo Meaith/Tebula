@@ -2,78 +2,54 @@ const track = document.querySelector(".slider-track");
 
 
 
-const website_projects = [
+const projects = [
   {
     image: "medias/pexels-fabiano-rodrigues-794857-1662298.jpg",
     name: "project 1",
-    description: "This is a project that was done to illustrate perfection",
-    links: "",
   },
   {
     image: "medias/tebula-logo.jpg",
     name: "project 2",
-    description: "This is a project that was done to illustrate perfection",
-    links: "",
   },
   {
     image: "./medias/b0f0118cc28b12258fc99ec3ca5c7a15.jpg",
     name: "project 3",
-    description: "This is a project that was done to illustrate perfection",
-    links: "",
   },
   {
     image: "./medias/Bulb.jpg",
     name: "project 4",
-    description: "This is a project that was done to illustrate perfection",
-    links: "",
   },
   {
     image: 'https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcRF2VqJlLsU0sJRFG0uVSUcb72wSLB_lU--6eTGU0_zkQmSYsz398xnprD4BPX55NmRhaza1wsR5WyZxteYdL_QQ2eqQhe-oVE5_QQNXQ',
     name: "project 5",
-    description: "This is a project that was done to illustrate perfection",
-    links: "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcRF2VqJlLsU0sJRFG0uVSUcb72wSLB_lU--6eTGU0_zkQmSYsz398xnprD4BPX55NmRhaza1wsR5WyZxteYdL_QQ2eqQhe-oVE5_QQNXQ",
   },
   {
     image: "medias/pexels-andrea-prochilo-3062027-23897249.jpg",
     name: "project 6",
-    description: "This is a project that was done to illustrate perfection",
-    links: "",
   },
   {
     image: "./medias//pexels-francesco-ungaro-1525041.jpg",
     name: "project 7",
-    description: "This is a project that was done to illustrate perfection",
-    links: "",
   },
   {
     image:`medias/White_logo-removebg-preview.png`,
     name: "project 8",
-    description: "This is a project that was done to illustrate perfection",
-    links: "",
   },
   {
     image: "./medias/pexels-pixabay-33545.jpg",
     name: "project 9",
-    description: "This is a project that was done to illustrate perfection",
-    links: "",
   },
   {
     image: "./medias/pexels-saimon-6070046.jpg",
     name: "project 10",
-    description: "This is a project that was done to illustrate perfection",
-    links: "",
   },
   {
     image: "./medias/pexels-jplenio-1146708.jpg",
     name: "project 11",
-    description: "This is a project that was done to illustrate perfection",
-    links: "",
   },
   {
     image: "./medias/Kyoto-mod-0782.jpg",
     name: "project 12",
-    description: "This is a project that was done to illustrate perfection",
-    links: "",
   },
   // {
   //   image: "./medias/Rolls Royce.jpg",
@@ -85,19 +61,16 @@ const website_projects = [
 
 
 let testingHTML = ''
-website_projects.forEach((website_project) => {
+projects.forEach((project) => {
   testingHTML +=
   `
   <div class="slide">
-    <img src="${website_project.image}" alt="${website_project.name}">
-    <div class="caption">
-      <p>${website_project.description}</p>
-      <button onclick="window.open('${website_project.links}')" class="visit-btn">Visit &#10095;</button>
-    </div>
+    <img src="${project.image}" alt="${project.name}">
+    <div class="caption">Beautiful mountains in spring</div>
   </div>
   `
 
-  const testing_display = document.querySelector('.website-slider .slider-track');
+  const testing_display = document.querySelector('.slider-track');
   testing_display.innerHTML = testingHTML;
 })
 
@@ -222,8 +195,8 @@ function stopAutoplay() {
   clearInterval(autoplayInterval);
 }
 
-document.querySelector(".website-slider").addEventListener("mouseleave", startAutoplay);
-document.querySelector(".website-slider").addEventListener("mouseenter", stopAutoplay);
+document.querySelector(".slider").addEventListener("mouseenter", stopAutoplay);
+document.querySelector(".slider").addEventListener("mouseleave", startAutoplay);
 
 track.style.transition = "transform 0.5s ease-in-out";
 updateSlides();
