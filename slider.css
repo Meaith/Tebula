@@ -90,6 +90,10 @@
 /* Mobile */
 @media (max-width: 768px) {
   .slide {
-    flex: 0 0 calc(100% / 1.2);
+    /* flex: 0 0 calc(100%/3); */
+  }
+
+  .slide image{
+    /* height: 250px; */
   }
 }

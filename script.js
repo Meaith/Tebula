@@ -61,8 +61,8 @@ function toggleBillingUI(element) {
 // Carousel setup
 const memorial_track = document.querySelector('.carousel-track');
 const memorial_slides = Array.from(memorial_track.children);
-const nextButton = document.querySelector('.next');
-const prevButton = document.querySelector('.prev');
+const nextButton = document.querySelector('.review-next');
+const prevButton = document.querySelector('.review-prev');
 
 let memorial_slideWidth = memorial_slides[0].getBoundingClientRect().width;
 let currentIndex = 0;

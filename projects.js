@@ -110,6 +110,8 @@ let slides = Array.from(document.querySelectorAll(".slide"));
 const prevBtn = document.querySelector(".prev");
 const nextBtn = document.querySelector(".next");
 const dotsContainer = document.querySelector(".dots");
+let planWidth = '';
+
 
 let index = 1;
 let autoplayInterval;
@@ -125,6 +127,10 @@ slides = Array.from(document.querySelectorAll(".slide"));
 const slideCount = slides.length;
 const originalCount = slideCount - 2;
 const slideWidth = 100 / 3;
+
+slides.forEach((slide) => {
+  planWidth = slide.offsetWidth;  
+})
 
 // Dots
 for (let i = 0; i < originalCount; i++) {
@@ -150,8 +156,8 @@ function updateSlides() {
 
   slides[centerIndex].classList.add("active");
 
-  const offset = -(index * slideWidth);
-  track.style.transform = `translateX(${offset}%)`;
+  const offset = -(index * planWidth);
+  track.style.transform = `translateX(${offset}px)`;
   updateDots();
 }
 

@@ -346,6 +346,7 @@ h2 {
 .plan-container {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   gap: 1.5rem;
 }
 
@@ -358,11 +359,13 @@ h2 {
 
 .plan-card {
   flex: 1;
-  background-color: var(--bg);
+  background:var(--card-bg); 
   border-radius: 1rem;
   box-shadow: 0 4px 6px var(--box-shadow);
   padding: 1.5rem;
   transition: 0.5s;
+  min-width: 380px;
+  max-width: 450px;
 }
 .plan-card:hover {
   box-shadow: 0 8px 12px var(--box-shadow-hover);
@@ -407,6 +410,11 @@ h2 {
 }
 .plan-card button:hover {
   background-color: #2563eb;
+}
+
+.plan-title {
+  font-size: 1.2rem;
+  font-weight: bold;
 }
 
 
@@ -695,41 +703,3 @@ body.loaded .page-transition {
 
 
 
-
-
-/* .plan {
-      border: 1px solid #ddd;
-      border-radius: 8px;
-      padding: 1rem;
-      margin: 1rem;
-      text-align: center;
-      max-width: 300px;
-    }
-
-    .plans-container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 1rem;
-    }
-
-    .plan-title {
-      font-size: 1.2rem;
-      font-weight: bold;
-    }
-
-    .plan-button {
-      margin-top: 1rem;
-      padding: 0.7rem 1.5rem;
-      border: none;
-      background-color: #3b82f6;
-      color: white;
-      font-size: 1rem;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    .plan-button:hover {
-      background-color: #2563eb;
-    } */

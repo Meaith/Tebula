@@ -118,7 +118,7 @@
           <li>3-Day Turnaround</li>
           <li>Email Support</li>
         </ul>
-        <button onclick="goToCheckout('pro')">Start 7-Day Free Trial</button>
+        <button onclick="goToCheckout('pro')">Choose Plan</button>
       </div>
 
       <!-- Enterprise Plan -->
@@ -140,64 +140,47 @@
   </section>
 
 
-  <!--PREVIOUS SUBSCRIPTION PLANS-->
+  <!-- PREVIOUS SUBSCRIPTION PLANS-->
 
-  <!-- <h1 style="text-align:center;">Our Subscription Plans</h1>
-  <div class="plans-container">
-    <div class="plan">
-      <div class="plan-title">Starter</div>
-      <p>$0 / month</p>
-      <button class="plan-button" onclick="goToCheckout('starter')">Start Free Trial</button>
-    </div>
+  <!-- <h1 style="text-align:center;">Our Subscription Plans</h1> -->
+  <div class="plan-container">
 
-    <div class="plan">
-      <div class="plan-title">Pro</div>
-      <p>$79 / month</p>
-      <button class="plan-button" onclick="goToCheckout('pro')">Start Free Trial</button>
-    </div>
-
-    <div class="plan">
-      <div class="plan-title">Enterprise</div>
-      <p>Custom Pricing</p>
-      <button class="plan-button" onclick="goToCheckout('enterprise')">Contact Sales</button>
-    </div>
-
-    <div class="plan">
+    <div class="plan-card">
       <div class="plan-title">Web Basic</div>
-      <p>$99 / month</p>
+      <p class="price" data-monthly="₦148,500" data-yearly="₦1,485,000">₦148,500<span>/month</span></p>
       <button class="plan-button" onclick="goToCheckout('web-basic')">Choose Plan</button>
     </div>
 
-    <div class="plan">
+    <div class="plan-card">
       <div class="plan-title">Web Premium</div>
-      <p>$299 / month</p>
+      <p class="price" data-monthly="₦448,500" data-yearly="₦4,485,000">₦448,500<span>/month</span></p>
       <button class="plan-button" onclick="goToCheckout('web-premium')">Choose Plan</button>
     </div>
 
-    <div class="plan">
+    <div class="plan-card">
       <div class="plan-title">Graphics Basic</div>
-      <p>$59 / month</p>
+      <p class="price" data-monthly="₦88,500" data-yearly="₦885,000">₦88,500<span>/month</span></p>
       <button class="plan-button" onclick="goToCheckout('graphics-basic')">Choose Plan</button>
     </div>
 
-    <div class="plan">
+    <div class="plan-card">
       <div class="plan-title">Graphics Pro</div>
-      <p>$149 / month</p>
+      <p class="price" data-monthly="₦223,500" data-yearly="₦2,235,000">₦223,500<span>/month</span></p>
       <button class="plan-button" onclick="goToCheckout('graphics-pro')">Choose Plan</button>
     </div>
 
-    <div class="plan">
+    <div class="plan-card">
       <div class="plan-title">Video Basic</div>
-      <p>$89 / month</p>
+      <p class="price" data-monthly="₦133,500" data-yearly="₦1,335,000">₦133,500<span>/month</span></p>
       <button class="plan-button" onclick="goToCheckout('video-basic')">Choose Plan</button>
     </div>
 
-    <div class="plan">
+    <div class="plan-card">
       <div class="plan-title">Video Pro</div>
-      <p>$199 / month</p>
+      <p class="price" data-monthly="₦298,500" data-yearly="₦2,985,000">₦298,500<span>/month</span></p>
       <button class="plan-button" onclick="goToCheckout('video-pro')">Choose Plan</button>
     </div>
-  </div> -->
+  </div>
 
 
 
@@ -208,7 +191,7 @@
     <div class="container">
       <h2>What Our Clients Say</h2>
       <div class="carousel">
-        <button class="prev" aria-label="Previous testimonial">&#10094;</button>
+        <button class="prev review-prev" aria-label="Previous testimonial">&#10094;</button>
         <div class="carousel-track-container">
           <ul class="carousel-track">
             <li class="carousel-slide">
@@ -233,7 +216,7 @@
             </li>
           </ul>
         </div>
-        <button class="next" aria-label="Next testimonial">&#10095;</button>
+        <button class="next review-next" aria-label="Next testimonial">&#10095;</button>
       </div>
     </div>
   </section>
