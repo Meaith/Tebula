@@ -3,8 +3,25 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="Tebula is a creative tech company specializing in web development, graphics design, and videography. We craft modern websites, stunning visuals, and engaging video content to help brands stand out online.">
+  <meta name="keywords" content="Tebula, web development, website design, graphics design, videography, creative tech company, branding, digital solutions, UI/UX design, video production, web apps, visual content creation">
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://tebula.vercel.app/">
+  <meta property="og:title" content="Tebula | Web Development, Graphics & Videography">
+  <meta property="og:description" content="Tebula is a creative tech company specializing in web development, graphics design, and videography. We craft modern websites, stunning visuals, and engaging video content to help brands stand out online.">
+  <meta property="og:image" content="./medias/tebula-logo.png">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://tebula.vercel.app/">
+  <meta name="twitter:title" content="Tebula | Web Development, Graphics & Videography">
+  <meta name="twitter:description" content="Tebula is a creative tech company specializing in web development, graphics design, and videography. We craft modern websites, stunning visuals, and engaging video content to help brands stand out online.">
+  <meta name="twitter:image" content="https://www.tebula.com/assets/preview-image.jpg">
+
+  
   <title>Tebula</title>
-  <link rel="stylesheet" href="slider.css" />
   <link rel="stylesheet" href="style.css" />
   <link rel="shortcut icon" href="./medias/tebula-logo.jpg" type="image/x-icon">
 </head>
@@ -64,16 +81,64 @@
   </section>
 
 
-  <div class="website-slider" id="portfolio">
-  <button class="prev">&#10094;</button>
-  <h2>Our Websites</h2>
-  <div class="slider-track">
-    
-  </div>
-  <button class="next">&#10095;</button>
-  <div class="dots"></div>
-</div>
 
+  <section class="portfolio" id="portfolio">
+
+    <h2>Websites Created by us</h2>
+
+    <div class="slider website-slider">
+      <button class="prev">&#10094;</button>
+      <div class="slider-track">
+        
+      </div>
+      <button class="next">&#10095;</button>
+      <div class="dots"></div>
+    </div>
+
+    <div class="slider graphics-slider">
+
+      <h2>Graphics Created by us</h2>
+
+      <button class="prev">&#10094;</button>
+      <div class="slider-track">
+        
+      </div>
+      <button class="next">&#10095;</button>
+      <div class="dots"></div>
+    </div>
+
+    <div class="slider videography-slider">
+
+      <h2>Videos Created by us</h2>
+
+      <button class="prev">&#10094;</button>
+      <div class="slider-track">
+        <div class="slide">
+          <img src="https://picsum.photos/id/1040/600/400" alt="Slide 11">
+          <div class="caption">Golden Gate</div>
+        </div>
+        <div class="slide">
+          <img src="https://picsum.photos/id/1043/600/400" alt="Slide 12">
+          <div class="caption">Lush Valley</div>
+        </div>
+        <div class="slide">
+          <img src="https://picsum.photos/id/1045/600/400" alt="Slide 13">
+          <div class="caption">Wildflowers</div>
+        </div>
+        <div class="slide">
+          <img src="https://picsum.photos/id/1049/600/400" alt="Slide 14">
+          <div class="caption">Harbor View</div>
+        </div>
+        <div class="slide">
+          <img src="https://picsum.photos/id/1052/600/400" alt="Slide 15">
+          <div class="caption">Rolling Hills</div>
+        </div>
+      </div>
+      <button class="next">&#10095;</button>
+      <div class="dots"></div>
+    </div>
+
+  </section>
 
   
   <section class="pricing-section" id="pricing">
@@ -145,43 +210,100 @@
   <!-- <h1 style="text-align:center;">Our Subscription Plans</h1> -->
   <div class="plan-container">
 
-    <div class="plan-card">
+    <div class="plan-card fade-in delay-100">
       <div class="plan-title">Web Basic</div>
       <p class="price" data-monthly="₦148,500" data-yearly="₦1,485,000">₦148,500<span>/month</span></p>
+      <ul>
+        <li>Up to 10 Projects/Month</li>
+        <li>Custom Website Design (Up to 5 Pages)</li>
+        <li>Social Media Graphics & Reels</li>
+        <li>2 Video Edits (Up to 2 Min Each)</li>
+        <li>3-Day Turnaround</li>
+        <li>Email Support</li>
+      </ul>
+
       <button class="plan-button" onclick="goToCheckout('web-basic')">Choose Plan</button>
     </div>
 
-    <div class="plan-card">
+    <div class="plan-card fade-in delay-100">
       <div class="plan-title">Web Premium</div>
       <p class="price" data-monthly="₦448,500" data-yearly="₦4,485,000">₦448,500<span>/month</span></p>
+      <ul>
+        <li>Up to 10 Projects/Month</li>
+        <li>Custom Website Design (Up to 5 Pages)</li>
+        <li>Social Media Graphics & Reels</li>
+        <li>2 Video Edits (Up to 2 Min Each)</li>
+        <li>3-Day Turnaround</li>
+        <li>Email Support</li>
+      </ul>
+
+
       <button class="plan-button" onclick="goToCheckout('web-premium')">Choose Plan</button>
     </div>
 
-    <div class="plan-card">
+    <div class="plan-card fade-in delay-100">
       <div class="plan-title">Graphics Basic</div>
       <p class="price" data-monthly="₦88,500" data-yearly="₦885,000">₦88,500<span>/month</span></p>
+      <ul>
+        <li>Up to 10 Projects/Month</li>
+        <li>Custom Website Design (Up to 5 Pages)</li>
+        <li>Social Media Graphics & Reels</li>
+        <li>2 Video Edits (Up to 2 Min Each)</li>
+        <li>3-Day Turnaround</li>
+        <li>Email Support</li>
+      </ul>
+
+
       <button class="plan-button" onclick="goToCheckout('graphics-basic')">Choose Plan</button>
     </div>
 
-    <div class="plan-card">
+    <div class="plan-card fade-in delay-100">
       <div class="plan-title">Graphics Pro</div>
       <p class="price" data-monthly="₦223,500" data-yearly="₦2,235,000">₦223,500<span>/month</span></p>
+
+      <ul>
+        <li>Up to 10 Projects/Month</li>
+        <li>Custom Website Design (Up to 5 Pages)</li>
+        <li>Social Media Graphics & Reels</li>
+        <li>2 Video Edits (Up to 2 Min Each)</li>
+        <li>3-Day Turnaround</li>
+        <li>Email Support</li>
+      </ul>
+
       <button class="plan-button" onclick="goToCheckout('graphics-pro')">Choose Plan</button>
     </div>
 
-    <div class="plan-card">
+    <div class="plan-card fade-in delay-100">
       <div class="plan-title">Video Basic</div>
       <p class="price" data-monthly="₦133,500" data-yearly="₦1,335,000">₦133,500<span>/month</span></p>
+      <ul>
+        <li>Up to 10 Projects/Month</li>
+        <li>Custom Website Design (Up to 5 Pages)</li>
+        <li>Social Media Graphics & Reels</li>
+        <li>2 Video Edits (Up to 2 Min Each)</li>
+        <li>3-Day Turnaround</li>
+        <li>Email Support</li>
+      </ul>
+
       <button class="plan-button" onclick="goToCheckout('video-basic')">Choose Plan</button>
     </div>
 
-    <div class="plan-card">
+    <div class="plan-card fade-in delay-100">
       <div class="plan-title">Video Pro</div>
       <p class="price" data-monthly="₦298,500" data-yearly="₦2,985,000">₦298,500<span>/month</span></p>
+      <ul>
+        <li>Up to 10 Projects/Month</li>
+        <li>Custom Website Design (Up to 5 Pages)</li>
+        <li>Social Media Graphics & Reels</li>
+        <li>2 Video Edits (Up to 2 Min Each)</li>
+        <li>3-Day Turnaround</li>
+        <li>Email Support</li>
+      </ul>
+
+
       <button class="plan-button" onclick="goToCheckout('video-pro')">Choose Plan</button>
     </div>
   </div>
-
 
 
 

@@ -10,12 +10,6 @@ const website_projects = [
     links: "",
   },
   {
-    image: "medias/tebula-logo.jpg",
-    name: "project 2",
-    description: "This is a project that was done to illustrate perfection",
-    links: "",
-  },
-  {
     image: "./medias/b0f0118cc28b12258fc99ec3ca5c7a15.jpg",
     name: "project 3",
     description: "This is a project that was done to illustrate perfection",
@@ -33,33 +27,20 @@ const website_projects = [
     description: "This is a project that was done to illustrate perfection",
     links: "https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcRF2VqJlLsU0sJRFG0uVSUcb72wSLB_lU--6eTGU0_zkQmSYsz398xnprD4BPX55NmRhaza1wsR5WyZxteYdL_QQ2eqQhe-oVE5_QQNXQ",
   },
+  
+  // {
+  //   image: "./medias/Rolls Royce.jpg",
+  // },
+  // {
+  //   image: "./medias/Rolls Royce.jpg",
+  // },
+];
+
+
+const graphics_projects = [
   {
-    image: "medias/pexels-andrea-prochilo-3062027-23897249.jpg",
-    name: "project 6",
-    description: "This is a project that was done to illustrate perfection",
-    links: "",
-  },
-  {
-    image: "./medias//pexels-francesco-ungaro-1525041.jpg",
-    name: "project 7",
-    description: "This is a project that was done to illustrate perfection",
-    links: "",
-  },
-  {
-    image:`medias/White_logo-removebg-preview.png`,
-    name: "project 8",
-    description: "This is a project that was done to illustrate perfection",
-    links: "",
-  },
-  {
-    image: "./medias/pexels-pixabay-33545.jpg",
-    name: "project 9",
-    description: "This is a project that was done to illustrate perfection",
-    links: "",
-  },
-  {
-    image: "./medias/pexels-saimon-6070046.jpg",
-    name: "project 10",
+    image: "medias/tebula-logo.jpg",
+    name: "project 2",
     description: "This is a project that was done to illustrate perfection",
     links: "",
   },
@@ -75,18 +56,47 @@ const website_projects = [
     description: "This is a project that was done to illustrate perfection",
     links: "",
   },
-  // {
-  //   image: "./medias/Rolls Royce.jpg",
-  // },
-  // {
-  //   image: "./medias/Rolls Royce.jpg",
-  // },
-];
+  {
+  image:`medias/White_logo-removebg-preview.png`,
+  name: "project 8",
+  description: "This is a project that was done to illustrate perfection",
+  links: "",
+  },
+]
 
 
-let testingHTML = ''
+const videography_projects = [
+  {
+    image: "medias/Background video - Made with Clipchamp.mp4",
+    name: "project 7",
+    description: "This is a project that was done to illustrate perfection",
+    links: "",
+  },
+  {
+    image: "medias/BeamWhite Global - Smart Loans for Your Future - Google Chrome 2025-08-17 11-27-13.mp4",
+    name: "project 9",
+    description: "This is a project that was done to illustrate perfection",
+    links: "",
+  },
+  {
+    image: "medias/Mercedes-AMG GLE 63 S 4MATIC+ (2020)： World Premiere ｜ Trailer.mp4",
+    name: "project 10",
+    description: "This is a project that was done to illustrate perfection",
+    links: "",
+  },
+  {
+  image: "medias/Mercedes-Benz GLE Coupé (2020)_ World Premiere _ Trailer.mp4",
+  name: "project 6",
+  description: "This is a project that was done to illustrate perfection",
+  links: "",
+  },
+]
+
+
+
+let websiteHTML = ''
 website_projects.forEach((website_project) => {
-  testingHTML +=
+  websiteHTML +=
   `
   <div class="slide">
     <img src="${website_project.image}" alt="${website_project.name}">
@@ -97,140 +107,166 @@ website_projects.forEach((website_project) => {
   </div>
   `
 
-  const testing_display = document.querySelector('.website-slider .slider-track');
-  testing_display.innerHTML = testingHTML;
+  const website_display = document.querySelector('.website-slider .slider-track');
+  website_display.innerHTML = websiteHTML;
+})
+
+
+let graphicsHTML = ''
+graphics_projects.forEach((graphics_project) => {
+  graphicsHTML += 
+  `
+  <div class="slide">
+    <img src="${graphics_project.image}" alt="${graphics_project.name}">
+    <div class="caption">
+      <p>${graphics_project.description}</p>
+      <button onclick="window.open('${graphics_project.links}')" class="visit-btn">Visit &#10095;</button>
+    </div>
+  </div>
+  `
+  
+  const graphic_display = document.querySelector('.graphics-slider .slider-track');
+  graphic_display.innerHTML = graphicsHTML;
+})
+
+
+let videographyHTML = ''
+videography_projects.forEach((videography_project) => {
+
+  videographyHTML += 
+  `
+  <div class="slide">
+    <video src="${videography_project.image}" alt="${videography_project.name}" class="videos" controls muted></video>
+    <div class="writeups">
+      <p>${videography_project.description}</p>
+      <button onclick="window.open('${videography_project.links}')" class="visit-btn">Play</button>
+    </div>
+  </div>
+  `
+
+
+  
+  const videography_display = document.querySelector('.videography-slider .slider-track');
+  videography_display.innerHTML = videographyHTML;
 })
 
 
 
 
+document.querySelectorAll(".slider").forEach((slider) => {
+  const track = slider.querySelector(".slider-track");
+  const slides = slider.querySelectorAll(".slide");
+  const prevBtn = slider.querySelector(".prev");
+  const nextBtn = slider.querySelector(".next");
+  const dotsContainer = slider.querySelector(".dots");
+  let index = 1;
+  let autoPlay;
 
+  // Clone first and last slide for seamless loop
+  const firstClone = slides[0].cloneNode(true);
+  const lastClone = slides[slides.length - 1].cloneNode(true);
+  track.appendChild(firstClone);
+  track.insertBefore(lastClone, slides[0]);
 
-let slides = Array.from(document.querySelectorAll(".slide"));
-const prevBtn = document.querySelector(".prev");
-const nextBtn = document.querySelector(".next");
-const dotsContainer = document.querySelector(".dots");
-let planWidth = '';
+  const allSlides = slider.querySelectorAll(".slide");
 
-
-let index = 1;
-let autoplayInterval;
-let isAnimating = false;
-
-const firstClone = slides[0].cloneNode(true);
-const lastClone = slides[slides.length - 1].cloneNode(true);
-
-track.appendChild(firstClone);
-track.insertBefore(lastClone, slides[0]);
-
-slides = Array.from(document.querySelectorAll(".slide"));
-const slideCount = slides.length;
-const originalCount = slideCount - 2;
-const slideWidth = 100 / 3;
-
-slides.forEach((slide) => {
-  planWidth = slide.offsetWidth;  
-})
-
-// Dots
-for (let i = 0; i < originalCount; i++) {
-  const dot = document.createElement("span");
-  dot.classList.add("dot");
-  if (i === 0) dot.classList.add("active");
-  dot.addEventListener("click", () => goToSlide(i + 1));
-  dotsContainer.appendChild(dot);
-}
-
-function updateDots() {
-  document.querySelectorAll(".dot").forEach((dot, i) => {
-    dot.classList.toggle("active", i === ((index - 1 + originalCount) % originalCount));
+  // Create dots
+  slides.forEach((slide, i) => {
+    const dot = document.createElement("span");
+    dot.classList.add("dot");
+    if (i === 0) dot.classList.add("active");
+    dot.addEventListener("click", () => {
+      index = i + 1; // account for clone offset
+      updateSlides();
+    });
+    dotsContainer.appendChild(dot);
   });
-}
 
-function updateSlides() {
-  slides.forEach((slide) => slide.classList.remove("active"));
+  const dots = dotsContainer.querySelectorAll(".dot");
 
-  let centerIndex = index + 1;
-  if (centerIndex >= slides.length) centerIndex = 0;
-  if (centerIndex < 0) centerIndex = slides.length - 1;
-
-  slides[centerIndex].classList.add("active");
-
-  const offset = -(index * planWidth);
-  track.style.transform = `translateX(${offset}px)`;
-  updateDots();
-}
-
-function goToSlide(i) {
-  if (isAnimating) return;
-  isAnimating = true;
-  index = i;
-  updateSlides();
-}
-
-function nextSlide() {
-  if (isAnimating) return;
-  isAnimating = true;
-  index++;
-  updateSlides();
-}
-
-function prevSlide() {
-  if (isAnimating) return;
-  isAnimating = true;
-  index--;
-  updateSlides();
-}
-
-track.addEventListener("transitionend", () => {
-  if (slides[index].isSameNode(firstClone)) {
-    track.style.transition = "none";
-    index = 1;
-    updateSlides();
-    setTimeout(() => (track.style.transition = "transform 0.5s ease-in-out"));
+  function getSlidesPerView() {
+    if (window.innerWidth <= 768) return 1;
+    if (window.innerWidth <= 1024) return 2;
+    return 3;
   }
-  if (slides[index].isSameNode(lastClone)) {
-    track.style.transition = "none";
-    index = slideCount - 2;
-    updateSlides();
-    setTimeout(() => (track.style.transition = "transform 0.5s ease-in-out"));
-  }
-  isAnimating = false;
-});
 
-// Click adjacent slide
-slides.forEach((slide, i) => {
-  slide.addEventListener("click", () => {
-    if (i === index + 1) return; // already active
-    if (i === index) prevSlide();
-    else if (i === index + 2) nextSlide();
+  function updateSlides(transition = true) {
+    if(window.innerWidth <= 768){
+      allSlides.forEach((s) => s.classList.remove("active"));
+      allSlides[index-1].classList.add("active")
+    }else if(window.innerWidth <= 1024){
+      allSlides.forEach((s) => s.classList.remove("active"));
+      allSlides[index-1].classList.add("active")
+    }else{
+      allSlides.forEach((s) => s.classList.remove("active"));
+      allSlides[index].classList.add("active");}
+
+    const slidesPerView = getSlidesPerView();
+    const offset = -(index - 1) * (100 / slidesPerView);
+    track.style.transition = transition ? "transform 0.5s ease" : "none";
+    track.style.transform = `translateX(${offset}%)`;
+
+    dots.forEach((d) => d.classList.remove("active"));
+    dots[(index - 1 + slides.length) % slides.length].classList.add("active");
+  }
+
+  function nextSlide() {
+    index++;
+    updateSlides();
+    if (index === allSlides.length - 1) {
+      setTimeout(() => {
+        index = 1;
+        updateSlides(false);
+      }, 500);
+    }
+  }
+
+  function prevSlide() {
+    index--;
+    updateSlides();
+    if (index === 0) {
+      setTimeout(() => {
+        index = allSlides.length - 2;
+        updateSlides(false);
+      }, 500);
+    }
+  }
+
+  nextBtn.addEventListener("click", nextSlide);
+  prevBtn.addEventListener("click", prevSlide);
+
+  // Clicking a slide moves it into focus
+  allSlides.forEach((slide, i) => {
+    slide.addEventListener("click", () => {
+      index = i;
+      updateSlides();
+    });
   });
+
+  // Autoplay
+  function startAutoPlay() {
+    autoPlay = setInterval(nextSlide, 3000);
+  }
+  function stopAutoPlay() {
+    clearInterval(autoPlay);
+  }
+  slider.addEventListener("mouseenter", stopAutoPlay);
+  slider.addEventListener("mouseleave", startAutoPlay);
+  startAutoPlay();
+
+  // Swipe support
+  let startX = 0;
+  track.addEventListener("touchstart", (e) => {
+    startX = e.touches[0].clientX;
+    stopAutoPlay(); // pause while swiping
+  });
+  track.addEventListener("touchend", (e) => {
+    const endX = e.changedTouches[0].clientX;
+    if (startX - endX > 50) nextSlide();
+    if (endX - startX > 50) prevSlide();
+    startAutoPlay(); // resume after swipe
+  });
+
+  updateSlides(false);
+  window.addEventListener("resize", () => updateSlides(false));
 });
-
-// Buttons
-prevBtn.addEventListener("click", prevSlide);
-nextBtn.addEventListener("click", nextSlide);
-
-// Swipe
-let startX = 0;
-track.addEventListener("touchstart", (e) => startX = e.touches[0].clientX);
-track.addEventListener("touchend", (e) => {
-  let endX = e.changedTouches[0].clientX;
-  if (endX < startX - 50) nextSlide();
-  if (endX > startX + 50) prevSlide();
-});
-
-// Autoplay
-function startAutoplay() {
-  autoplayInterval = setInterval(nextSlide, 3000);
-}
-function stopAutoplay() {
-  clearInterval(autoplayInterval);
-}
-
-document.querySelector(".website-slider").addEventListener("mouseleave", startAutoplay);
-document.querySelector(".website-slider").addEventListener("mouseenter", stopAutoplay);
-
-track.style.transition = "transform 0.5s ease-in-out";
-updateSlides();
-startAutoplay();

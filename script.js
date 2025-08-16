@@ -51,9 +51,9 @@ function toggleBillingUI(element) {
 }
 
 // checkout function
- function goToCheckout(plan) {
-      window.location.href = `checkout-page.html?plan=${encodeURIComponent(plan)}`;
-    }
+function goToCheckout(plan,time) {
+  window.open(`checkout-page.html?plan=${encodeURIComponent(plan)}`)
+}
 
 
 
