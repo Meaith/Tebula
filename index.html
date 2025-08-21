@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en" class="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Tebula</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="shortcut icon" href="./medias/tebula-logo.jpg" type="image/x-icon">
+</head>
+<body>
+  <div class="page-transition"></div>
+
+  <header>
+    <div class="container">
+      <h1 class="logo">Tebula</h1>
+      <button id="hamburger" aria-label="Menu">☰</button>
+      <nav id="nav">
+        <ul>
+          <a href="#about">About</a>
+          <a href="#services">Services</a>
+          <a href="#portfolio">Portfolio</a>
+          <a href="#pricing">Plans</a>
+          <a href="#contact">Contact</a>
+          <button id="theme-toggle">🌙</button>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <section class="hero" style="background-image: url('./medias/pexels-fabiano-rodrigues-794857-1662298.jpg');">
+    <div class="container">
+      <h2>We Build Digital Experiences</h2>
+      <p>From sleek websites to stunning visuals and dynamic video production.</p>
+      <a href="#contact" class="btn">Let's Talk</a>
+    </div>
+  </section>
+
+  <section id="about" class="about">
+    <div class="container">
+      <h2>Who We Are</h2>
+      <p>We are a technology and creative studio specializing in web development, graphic design, and videography. Combining technical expertise with artistic flair, we help brands connect meaningfully with their audience.</p>
+    </div>
+  </section>
+
+  <section id="services" class="services">
+    <div class="container">
+      <h2>What We Do</h2>
+      <div class="service-cards">
+        <div class="card">
+          <h3>Web Development</h3>
+          <p>Responsive websites, e‑commerce platforms, custom UI/UX — built for performance and scalability.</p>
+        </div>
+        <div class="card">
+          <h3>Graphic Design</h3>
+          <p>Brand identity, marketing collateral, digital artwork — visual storytelling that resonates.</p>
+        </div>
+        <div class="card">
+          <h3>Videography</h3>
+          <p>High-quality video production, editing, and motion graphics — bringing your vision to life.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+
+  <section class="portfolio" id="portfolio">
+
+    <h2>Websites Created by us</h2>
+
+    <div class="slider website-slider">
+      <button class="prev">&#10094;</button>
+      <div class="slider-track">
+        
+      </div>
+      <button class="next">&#10095;</button>
+      <div class="dots"></div>
+    </div>
+
+    <div class="slider graphics-slider">
+
+      <h2>Graphics Created by us</h2>
+
+      <button class="prev">&#10094;</button>
+      <div class="slider-track">
+        
+      </div>
+      <button class="next">&#10095;</button>
+      <div class="dots"></div>
+    </div>
+
+    <div class="slider videography-slider">
+
+      <h2>Videos Created by us</h2>
+
+      <button class="prev">&#10094;</button>
+      <div class="slider-track">
+        <div class="slide">
+          <img src="https://picsum.photos/id/1040/600/400" alt="Slide 11">
+          <div class="caption">Golden Gate</div>
+        </div>
+        <div class="slide">
+          <img src="https://picsum.photos/id/1043/600/400" alt="Slide 12">
+          <div class="caption">Lush Valley</div>
+        </div>
+        <div class="slide">
+          <img src="https://picsum.photos/id/1045/600/400" alt="Slide 13">
+          <div class="caption">Wildflowers</div>
+        </div>
+        <div class="slide">
+          <img src="https://picsum.photos/id/1049/600/400" alt="Slide 14">
+          <div class="caption">Harbor View</div>
+        </div>
+        <div class="slide">
+          <img src="https://picsum.photos/id/1052/600/400" alt="Slide 15">
+          <div class="caption">Rolling Hills</div>
+        </div>
+      </div>
+      <button class="next">&#10095;</button>
+      <div class="dots"></div>
+    </div>
+
+  </section>
+
+  
+  <section class="pricing-section" id="pricing">
+    <h2 class="section-title">Choose Your Plan</h2>
+
+    <!-- Toggle Switch -->
+    <div class="billing-toggle">
+      <div class="toggle-wrapper">
+        <span class="toggle-label">Monthly</span>
+        <div class="toggle-button" onclick="toggleBillingUI(this)">
+          <div class="toggle-thumb"></div>
+        </div>
+        <span class="toggle-label">Yearly</span>
+      </div>
+    </div>
+
+    <div class="plan-container">
+      <!-- Starter Plan -->
+      <div class="plan-card fade-in">
+        <img src="starter-icon.svg" alt="Starter Icon" class="plan-icon">
+        <h3>Starter</h3>
+        <p class="price" data-monthly="₦0" data-yearly="₦0">₦0<span>/month</span></p>
+        <ul>
+          <li>1 Design or Edit per Month</li>
+          <li>Basic Website Template Access</li>
+          <li>Community Support</li>
+          <li>Watermarked Deliverables</li>
+        </ul>
+        <button onclick="goToCheckout('starter')">Get Started Free</button>
+      </div>
+
+      <!-- Pro Plan -->
+      <div class="plan-card fade-in delay-100">
+        <img src="pro-icon.svg" alt="Pro Icon" class="plan-icon">
+        <h3>Pro</h3>
+        <p class="price" data-monthly="₦118,500" data-yearly="₦1,185,000">₦118,500<span>/month</span></p>
+        <ul>
+          <li>Up to 10 Projects/Month</li>
+          <li>Custom Website Design (Up to 5 Pages)</li>
+          <li>Social Media Graphics & Reels</li>
+          <li>2 Video Edits (Up to 2 Min Each)</li>
+          <li>3-Day Turnaround</li>
+          <li>Email Support</li>
+        </ul>
+        <button onclick="goToCheckout('pro')">Choose Plan</button>
+      </div>
+
+      <!-- Enterprise Plan -->
+      <div class="plan-card fade-in delay-200">
+        <img src="enterprise-icon.svg" alt="Enterprise Icon" class="plan-icon">
+        <h3>Enterprise</h3>
+        <p class="price" data-monthly="Custom" data-yearly="Custom">Custom Pricing</p>
+        <ul>
+          <li>Unlimited Projects</li>
+          <li>Custom Web Solutions (eComm, Portfolios, etc.)</li>
+          <li>Brand Identity Kit & Graphic Suite</li>
+          <li>Full-Length Videos & Commercial Edits</li>
+          <li>24-48 Hour Turnaround</li>
+          <li>Dedicated Manager</li>
+        </ul>
+        <button onclick="goToCheckout('enterprise')">Contact Sales</button>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- PREVIOUS SUBSCRIPTION PLANS-->
+
+  <!-- <h1 style="text-align:center;">Our Subscription Plans</h1> -->
+  <div class="plan-container">
+
+    <div class="plan-card fade-in delay-100">
+      <div class="plan-title">Web Basic</div>
+      <p class="price" data-monthly="₦148,500" data-yearly="₦1,485,000">₦148,500<span>/month</span></p>
+      <ul>
+        <li>Up to 10 Projects/Month</li>
+        <li>Custom Website Design (Up to 5 Pages)</li>
+        <li>Social Media Graphics & Reels</li>
+        <li>2 Video Edits (Up to 2 Min Each)</li>
+        <li>3-Day Turnaround</li>
+        <li>Email Support</li>
+      </ul>
+
+      <button class="plan-button" onclick="goToCheckout('web-basic')">Choose Plan</button>
+    </div>
+
+    <div class="plan-card fade-in delay-100">
+      <div class="plan-title">Web Premium</div>
+      <p class="price" data-monthly="₦448,500" data-yearly="₦4,485,000">₦448,500<span>/month</span></p>
+      <ul>
+        <li>Up to 10 Projects/Month</li>
+        <li>Custom Website Design (Up to 5 Pages)</li>
+        <li>Social Media Graphics & Reels</li>
+        <li>2 Video Edits (Up to 2 Min Each)</li>
+        <li>3-Day Turnaround</li>
+        <li>Email Support</li>
+      </ul>
+
+
+      <button class="plan-button" onclick="goToCheckout('web-premium')">Choose Plan</button>
+    </div>
+
+    <div class="plan-card fade-in delay-100">
+      <div class="plan-title">Graphics Basic</div>
+      <p class="price" data-monthly="₦88,500" data-yearly="₦885,000">₦88,500<span>/month</span></p>
+      <ul>
+        <li>Up to 10 Projects/Month</li>
+        <li>Custom Website Design (Up to 5 Pages)</li>
+        <li>Social Media Graphics & Reels</li>
+        <li>2 Video Edits (Up to 2 Min Each)</li>
+        <li>3-Day Turnaround</li>
+        <li>Email Support</li>
+      </ul>
+
+
+      <button class="plan-button" onclick="goToCheckout('graphics-basic')">Choose Plan</button>
+    </div>
+
+    <div class="plan-card fade-in delay-100">
+      <div class="plan-title">Graphics Pro</div>
+      <p class="price" data-monthly="₦223,500" data-yearly="₦2,235,000">₦223,500<span>/month</span></p>
+
+      <ul>
+        <li>Up to 10 Projects/Month</li>
+        <li>Custom Website Design (Up to 5 Pages)</li>
+        <li>Social Media Graphics & Reels</li>
+        <li>2 Video Edits (Up to 2 Min Each)</li>
+        <li>3-Day Turnaround</li>
+        <li>Email Support</li>
+      </ul>
+
+      <button class="plan-button" onclick="goToCheckout('graphics-pro')">Choose Plan</button>
+    </div>
+
+    <div class="plan-card fade-in delay-100">
+      <div class="plan-title">Video Basic</div>
+      <p class="price" data-monthly="₦133,500" data-yearly="₦1,335,000">₦133,500<span>/month</span></p>
+      <ul>
+        <li>Up to 10 Projects/Month</li>
+        <li>Custom Website Design (Up to 5 Pages)</li>
+        <li>Social Media Graphics & Reels</li>
+        <li>2 Video Edits (Up to 2 Min Each)</li>
+        <li>3-Day Turnaround</li>
+        <li>Email Support</li>
+      </ul>
+
+      <button class="plan-button" onclick="goToCheckout('video-basic')">Choose Plan</button>
+    </div>
+
+    <div class="plan-card fade-in delay-100">
+      <div class="plan-title">Video Pro</div>
+      <p class="price" data-monthly="₦298,500" data-yearly="₦2,985,000">₦298,500<span>/month</span></p>
+      <ul>
+        <li>Up to 10 Projects/Month</li>
+        <li>Custom Website Design (Up to 5 Pages)</li>
+        <li>Social Media Graphics & Reels</li>
+        <li>2 Video Edits (Up to 2 Min Each)</li>
+        <li>3-Day Turnaround</li>
+        <li>Email Support</li>
+      </ul>
+
+
+      <button class="plan-button" onclick="goToCheckout('video-pro')">Choose Plan</button>
+    </div>
+  </div>
+
+
+
+
+
+  <section id="testimonials" class="testimonials">
+    <div class="container">
+      <h2>What Our Clients Say</h2>
+      <div class="carousel">
+        <button class="prev review-prev" aria-label="Previous testimonial">&#10094;</button>
+        <div class="carousel-track-container">
+          <ul class="carousel-track">
+            <li class="carousel-slide">
+              <p>"Tebula brought our website to life with amazing design and flawless code!"</p>
+              <h4>– Sarah Johnson, CEO of BrightStart</h4>
+            </li>
+            <li class="carousel-slide">
+              <p>"Professional and creative — their videography made our brand story unforgettable."</p>
+              <h4>– David Lee, Marketing Head at WaveMedia</h4>
+            </li>
+            <li class="carousel-slide">
+              <p>"Their team delivered exactly what we needed on time. Highly recommend for web dev and design."</p>
+              <h4>– Priya Patel, Founder of EcoGoods</h4>
+            </li>
+            <li class="carousel-slide">
+              <p>"Great communication and fast turnaround. Our visuals have never looked better!"</p>
+              <h4>– James Wong, CTO at NextGen Apps</h4>
+            </li>
+            <li class="carousel-slide">
+              <p>"From concept to launch, the Tebula team was responsive and talented."</p>
+              <h4>– Anna Smith, Founder of Green Leaf Co.</h4>
+            </li>
+          </ul>
+        </div>
+        <button class="next review-next" aria-label="Next testimonial">&#10095;</button>
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <section id="contact" class="contact">
+    <div class="container">
+      <h2>Contact Us</h2>
+      <form action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Tebula. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script src="projects.js"></script>
+</body>
+</html>
