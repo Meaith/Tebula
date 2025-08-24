@@ -4,22 +4,22 @@ const track = document.querySelector(".slider-track");
 
 const website_projects = [
   {
-    image: "medias/pexels-fabiano-rodrigues-794857-1662298.jpg",
+    image: "medias/around-campus.png",
     name: "project 1",
     description: "This is a project that was done to illustrate perfection",
-    links: "",
+    links: "https://aroundcampus.ng/",
   },
   {
-    image: "./medias/b0f0118cc28b12258fc99ec3ca5c7a15.jpg",
+    image: "./medias/melben-travelling agency.png",
     name: "project 3",
     description: "This is a project that was done to illustrate perfection",
-    links: "",
+    links: "https://benevolent-chebakia-1cfb47.netlify.app/",
   },
   {
-    image: "./medias/Bulb.jpg",
+    image: "./medias/quiz-campus.png",
     name: "project 4",
     description: "This is a project that was done to illustrate perfection",
-    links: "",
+    links: "https://quiz-campus.vercel.app/questions.html",
   },
   {
     image: 'https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcRF2VqJlLsU0sJRFG0uVSUcb72wSLB_lU--6eTGU0_zkQmSYsz398xnprD4BPX55NmRhaza1wsR5WyZxteYdL_QQ2eqQhe-oVE5_QQNXQ',
@@ -70,10 +70,10 @@ const videography_projects = [
     image: "medias/Background video - Made with Clipchamp.mp4",
     name: "project 7",
     description: "This is a project that was done to illustrate perfection",
-    links: "",
+    links: "https://drive.google.com/uc?export=download&id=1GtSapNLwYbvVVcf5S0pzA_y9NnGVmat3",
   },
   {
-    image: "medias/BeamWhite Global - Smart Loans for Your Future - Google Chrome 2025-08-17 11-27-13.mp4",
+    image: "medias/Adidas commercial .mp4",
     name: "project 9",
     description: "This is a project that was done to illustrate perfection",
     links: "",
@@ -139,7 +139,7 @@ videography_projects.forEach((videography_project) => {
     <video src="${videography_project.image}" alt="${videography_project.name}" class="videos" controls muted></video>
     <div class="writeups">
       <p>${videography_project.description}</p>
-      <button onclick="window.open('${videography_project.links}')" class="visit-btn">Play</button>
+      <button onclick="window.open('${videography_project.image}')" class="visit-btn">View</button>
     </div>
   </div>
   `
