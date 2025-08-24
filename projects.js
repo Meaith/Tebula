@@ -4,22 +4,22 @@ const track = document.querySelector(".slider-track");
 
 const website_projects = [
   {
-    image: "medias/pexels-fabiano-rodrigues-794857-1662298.jpg",
-    name: "project 1",
-    description: "This is a project that was done to illustrate perfection",
-    links: "",
+    image: "medias/around-campus.png",
+    name: "Around Campus",
+    description: "This is a project that was done to connect housing agents and customers",
+    links: "https://aroundcampus.ng/",
   },
   {
-    image: "./medias/b0f0118cc28b12258fc99ec3ca5c7a15.jpg",
-    name: "project 3",
-    description: "This is a project that was done to illustrate perfection",
-    links: "",
+    image: "./medias/melben-travelling agency.png",
+    name: "Melben Travelling Agency",
+    description: "This is a project for Travelling Agency across multiple nations",
+    links: "https://benevolent-chebakia-1cfb47.netlify.app/",
   },
   {
-    image: "./medias/Bulb.jpg",
-    name: "project 4",
-    description: "This is a project that was done to illustrate perfection",
-    links: "",
+    image: "./medias/quiz-campus.png",
+    name: "Quiz Campus",
+    description: "This is a project that was done to test and educate university students on their courses",
+    links: "https://quiz-campus.vercel.app/questions.html",
   },
   {
     image: 'https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcRF2VqJlLsU0sJRFG0uVSUcb72wSLB_lU--6eTGU0_zkQmSYsz398xnprD4BPX55NmRhaza1wsR5WyZxteYdL_QQ2eqQhe-oVE5_QQNXQ',
@@ -40,26 +40,26 @@ const website_projects = [
 const graphics_projects = [
   {
     image: "medias/tebula-logo.jpg",
-    name: "project 2",
-    description: "This is a project that was done to illustrate perfection",
+    name: "Tebula Logo",
+    description: "",
     links: "",
   },
   {
     image: "./medias/pexels-jplenio-1146708.jpg",
     name: "project 11",
-    description: "This is a project that was done to illustrate perfection",
+    description: "",
     links: "",
   },
   {
     image: "./medias/Kyoto-mod-0782.jpg",
     name: "project 12",
-    description: "This is a project that was done to illustrate perfection",
+    description: "",
     links: "",
   },
   {
   image:`medias/White_logo-removebg-preview.png`,
-  name: "project 8",
-  description: "This is a project that was done to illustrate perfection",
+  name: "Melben Logo",
+  description: "",
   links: "",
   },
 ]
@@ -70,11 +70,11 @@ const videography_projects = [
     image: "medias/Background video - Made with Clipchamp.mp4",
     name: "project 7",
     description: "This is a project that was done to illustrate perfection",
-    links: "",
+    links: "https://drive.google.com/uc?export=download&id=1GtSapNLwYbvVVcf5S0pzA_y9NnGVmat3",
   },
   {
-    image: "medias/BeamWhite Global - Smart Loans for Your Future - Google Chrome 2025-08-17 11-27-13.mp4",
-    name: "project 9",
+    image: "medias/Adidas commercial .mp4",
+    name: "Addidas touchup Ad",
     description: "This is a project that was done to illustrate perfection",
     links: "",
   },
@@ -100,7 +100,8 @@ website_projects.forEach((website_project) => {
   `
   <div class="slide">
     <img src="${website_project.image}" alt="${website_project.name}">
-    <div class="caption">
+    <div class="writeups">
+      <h3>${website_project.name}</h3>
       <p>${website_project.description}</p>
       <button onclick="window.open('${website_project.links}')" class="visit-btn">Visit &#10095;</button>
     </div>
@@ -118,7 +119,8 @@ graphics_projects.forEach((graphics_project) => {
   `
   <div class="slide">
     <img src="${graphics_project.image}" alt="${graphics_project.name}">
-    <div class="caption">
+    <div class="writeups">
+      <h3>${graphics_project.name}</h3>
       <p>${graphics_project.description}</p>
       <button onclick="window.open('${graphics_project.links}')" class="visit-btn">Visit &#10095;</button>
     </div>
@@ -138,8 +140,9 @@ videography_projects.forEach((videography_project) => {
   <div class="slide">
     <video src="${videography_project.image}" alt="${videography_project.name}" class="videos" controls muted></video>
     <div class="writeups">
+    <h3>${videography_project.name}</h3>
       <p>${videography_project.description}</p>
-      <button onclick="window.open('${videography_project.links}')" class="visit-btn">Play</button>
+      <button onclick="window.open('${videography_project.image}')" class="visit-btn">View</button>
     </div>
   </div>
   `

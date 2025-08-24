@@ -41,6 +41,17 @@ body {
   overflow: hidden;
 }
 
+.loader{
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.loader img{
+  width: 15rem;
+}
+
 .page-transition { 
   position: fixed; 
   top:0; 
@@ -253,11 +264,18 @@ h2 {
 }
 
 .writeups{
+  position: relative;
   color: var(--text);
   opacity: 0;
-  width: 90%;
+  width: 95%;
   margin: auto;
+  text-align: right;
   transition: 1s;
+}
+
+.writeups h3, p{
+  text-align: left;
+  /* margin-left: .5rem; */
 }
 
 .visit-btn{
@@ -352,7 +370,10 @@ h2 {
   }
   .slide.active {
   margin: 0;
-}
+  }
+  .writeups{
+    width: 80%;
+  }
 }
 
 @media (max-width: 480px) {
@@ -755,6 +776,12 @@ footer p{
   nav{
     width: 100%;
     height: auto;
+  }
+}
+
+@media screen and (max-width: 375px) {
+  .plan-card{
+    min-width: 300px;
   }
 }
 
