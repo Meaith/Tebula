@@ -19,7 +19,7 @@ const website_projects = [
     image: "./medias/quiz-campus.png",
     name: "Quiz Campus",
     description: "This is a project that was done to test and educate university students on their courses",
-    links: "https://quiz-campus.vercel.app/index.html",
+    links: "https://quiz-campus.vercel.app/questions.html",
   },
   {
     image: 'https://encrypted-tbn0.gstatic.com/licensed-image?q=tbn:ANd9GcRF2VqJlLsU0sJRFG0uVSUcb72wSLB_lU--6eTGU0_zkQmSYsz398xnprD4BPX55NmRhaza1wsR5WyZxteYdL_QQ2eqQhe-oVE5_QQNXQ',
