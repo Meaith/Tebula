@@ -42,25 +42,26 @@ const graphics_projects = [
     image: "medias/tebula-logo.jpg",
     name: "Tebula Logo",
     description: "",
-    links: "",
   },
   {
-    image: "./medias/pexels-jplenio-1146708.jpg",
-    name: "project 11",
+    image: "medias/Ikhide Graphics1.jpg",
+    name: "Montel's Academy Flyer",
     description: "",
-    links: "",
   },
   {
-    image: "./medias/Kyoto-mod-0782.jpg",
-    name: "project 12",
+    image: "medias/Ikhide graphics2.jpg",
+    name: "NASSON",
     description: "",
-    links: "",
   },
   {
-  image:`medias/White_logo-removebg-preview.png`,
-  name: "Melben Logo",
-  description: "",
-  links: "",
+  image:`medias/Ikhide graphics3.jpg`,
+  name: "Tola Jewelry Flyer",
+  description: ""
+  },
+  {
+  image:`medias/Ikhide graphics4.jpg`,
+  name: "Tola Hair Care Flyer",
+  description: ""
   },
 ]
 
@@ -79,8 +80,8 @@ const videography_projects = [
     links: "",
   },
   {
-    image: "medias/Mercedes-AMG GLE 63 S 4MATIC+ (2020)： World Premiere ｜ Trailer.mp4",
-    name: "project 10",
+    image: "medias/916 video.mp4",
+    name: "916 Scents",
     description: "This is a project that was done to illustrate perfection",
     links: "",
   },
@@ -117,12 +118,12 @@ let graphicsHTML = ''
 graphics_projects.forEach((graphics_project) => {
   graphicsHTML += 
   `
-  <div class="slide">
+  <div class="slide" onclick="changingImage('${graphics_project.image}','${graphics_project.name}', '${graphics_project.description}', '${graphics_project.image}')">
     <img src="${graphics_project.image}" alt="${graphics_project.name}">
     <div class="writeups">
       <h3>${graphics_project.name}</h3>
       <p>${graphics_project.description}</p>
-      <button onclick="window.open('${graphics_project.links}')" class="visit-btn">Visit &#10095;</button>
+      <button onclick="window.open('${graphics_project.image}')" class="visit-btn">View &#10095;</button>
     </div>
   </div>
   `
@@ -142,7 +143,7 @@ videography_projects.forEach((videography_project) => {
     <div class="writeups">
     <h3>${videography_project.name}</h3>
       <p>${videography_project.description}</p>
-      <button onclick="window.open('${videography_project.image}')" class="visit-btn">View</button>
+      <button onclick="window.open('${videography_project.image}')" class="visit-btn">View &#10095;</button>
     </div>
   </div>
   `
@@ -151,6 +152,30 @@ videography_projects.forEach((videography_project) => {
   
   const videography_display = document.querySelector('.videography-slider .slider-track');
   videography_display.innerHTML = videographyHTML;
+})
+
+//DISPLAY OVERLAY FOR IMAGES AND VIDEOS
+
+const overlay = document.querySelector('.image-overlay')
+const overlay_title = document.querySelector('.overlay-writeups h3')
+const overlay_description = document.querySelector('.overlay-writeups p')
+const overlay_button = document.querySelector('.overlay-writeups .visit-btn')
+
+function changingImage(image_source, title, description, link){
+  const overlay_image = document.querySelector('.overlay-view img');
+  overlay_image.src = image_source;
+  overlay_title.innerHTML = title;
+  overlay_description.innerHTML = description;
+  overlay.classList.remove('disappear')
+  overlay.classList.add('appear')
+};
+
+const close_btn = document.querySelector('.close-button')
+
+close_btn.addEventListener('click', ()=> {
+  overlay.classList.remove('appear')
+  overlay.classList.add('disappear')
+  console.log('clicked')
 })
 
 
