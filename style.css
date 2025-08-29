@@ -210,7 +210,7 @@ h2 {
 }
 
 .appear{
-  animation: appear 0.8s forwards ease-in-out;
+  animation: appear 0.5s forwards ease-in-out;
 }
 
 @keyframes appear {
@@ -229,7 +229,7 @@ h2 {
 
 .disappear{
   display: none;
-  animation: disappear .8s forwards ease-in-out;
+  animation: disappear .5s forwards ease-in-out;
 }
 
 @keyframes disappear {
