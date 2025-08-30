@@ -142,9 +142,9 @@ videography_projects.forEach((videography_project) => {
 
   videographyHTML += 
   `
-  <div class="slide" onclick= "changingVideo('${videography_project.image}','${videography_project.name}','${videography_project.description}','${videography_project.image}')">
+  <div class="slide">
     <video src="${videography_project.image}" alt="${videography_project.name}" class="videos" controls muted ></video>
-    <div class="writeups">
+    <div class="writeups" onclick= "changingVideo('${videography_project.image}','${videography_project.name}','${videography_project.description}','${videography_project.image}')">
     <h3>${videography_project.name}</h3>
       <p>${videography_project.description}</p>
       <button onclick="window.open('${videography_project.image}')" class="visit-btn">View &#10095;</button>

@@ -205,7 +205,8 @@ h2 {
   background: rgba(245, 245, 245,0.2);
   backdrop-filter: blur(30px);
   display: flex;
-  position: absolute;
+  position: fixed;
+  top: 40px;
   z-index: 4;
 }
 
@@ -252,9 +253,9 @@ h2 {
   padding: 0 20px;
   margin: auto;
   border-radius: 40px;
-  background-color: black;
+  background-color: var(--bg);
   text-align: right;
-  color: white;
+  color: var(--text);
   display: flex;
   align-items: center;
   gap: 20px;
@@ -280,10 +281,10 @@ h2 {
 .close-button{
   font-size: 2rem;
   padding: 7px 15px;
-  border: 2px solid white;
+  border: 2px solid var(--text);
   border-radius: 50%;
   background-color: transparent;
-  color: white;
+  color: text;
   position: absolute;
   top: 40px;
   right: 50px;
@@ -296,6 +297,66 @@ h2 {
   border: 2px solid orange;
 }
 
+/*RESPONSIVE STYLES FOR OVERLAY*/
+@media screen and (max-width: 890px) {
+  .overlay-view{
+    width: 90%;
+  }
+}
+
+@media screen and (max-width: 720px) {
+  .overlay-view{
+    height: 80vh;
+    padding-bottom: 20px;
+    flex-direction: column;
+  }
+
+  .overlay-view h3{
+    margin: 10px 0;
+  }
+
+  .overlay-view p{
+    margin: 6px 0;
+  }
+
+  
+}
+
+@media screen and (max-width: 650px) {
+  .overlay-view{
+    gap: 10px;
+  }
+  .overlay-view img, .overlay-view video{
+    width: 80%;
+  }
+
+  .close-button{
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    padding: 4px 12px;
+  }
+}
+
+@media screen and (max-width: 425px) {
+  .overlay-view{
+    gap: 5px;
+    padding: 30px;
+    width: 96%;
+  }
+  .overlay-view img, .overlay-view video{
+    width: 100%;
+  }
+
+  .close-button{
+    top: 20px;
+    right: 20px;
+    font-size: 1.5rem;
+    padding: 4px 12px;
+  }
+}
+
+/*SLIDERS STYLES*/
 .slider {
   position: relative;
   overflow: hidden;
