@@ -284,11 +284,12 @@ h2 {
   border: 2px solid var(--text);
   border-radius: 50%;
   background-color: transparent;
-  color: text;
+  color: var(--text);
   position: absolute;
   top: 40px;
   right: 50px;
   cursor: pointer;
+  z-index: 2;
   transition: .5s;
 }
 
@@ -536,42 +537,6 @@ h2 {
   padding: 2rem;
 }
 
-.toggle-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.75rem;
-  margin-bottom: 2rem;
-}
-.toggle-label {
-  font-weight: 500;
-}
-.toggle-button {
-  width: 50px;
-  height: 26px;
-  background-color: #ccc;
-  border-radius: 50px;
-  position: relative;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-.toggle-button.active {
-  background-color: #3b82f6;
-}
-.toggle-thumb {
-  width: 22px;
-  height: 22px;
-  background-color: white;
-  border-radius: 50%;
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  transition: left 0.3s ease;
-}
-.toggle-button.active .toggle-thumb {
-  left: 26px;
-}
-
 .section-title {
   text-align: center;
   font-size: 2rem;
@@ -579,9 +544,69 @@ h2 {
   margin-bottom: 2rem;
 }
 
+/*BEGINNING OF TOGGLE BUTTON STYLE*/
+.toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 30px;
+  font-weight: 600;
+  color: var(--text);
+  gap: 10px;
+  font-size: 1.1rem;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.toggle-slider{
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #2563eb;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.toggle-slider:before {
+  position: absolute;
+  content: "";
+  height: 22px;
+  width: 22px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .toggle-slider {
+  background-color: #16a34a;
+}
+
+input:checked + .toggle-slider:before {
+  transform: translateX(30px);
+}
+
+
+/*End OF TOGGLE BUTTON*/
+
+
+
 .plan-container {
   display: flex;
-  /* flex-direction: column; */
   padding: 10px 60px;
   align-items: center;
   justify-content: center;
@@ -599,6 +624,7 @@ h2 {
 .plan-card {
   flex: 1;
   background:var(--card-bg); 
+  color: text;
   border-radius: 1rem;
   box-shadow: 0 4px 6px var(--box-shadow);
   padding: 1.5rem;
@@ -616,24 +642,39 @@ h2 {
 }
 
 .price {
-  font-size: 1.75rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #2563eb;
+  margin: 15px 0;
+  transition: opacity 0.4s ease-in-out;
 }
+
 .price span {
-  font-size: 0.875rem;
+  font-size: 0.9rem;
+  color: var(--text);
   font-weight: normal;
 }
 
 .plan-card ul {
   list-style: none;
   padding: 0;
-  margin-bottom: 1.5rem;
+  margin: 25px 0;
+  text-align: left;
 }
 
 .plan-card ul li {
-  font-size: 0.875rem;
-  margin-bottom: 0.5rem;
+  margin: 12px 0;
+  font-size: 0.95rem;
+  color: var(--text);
+  display: flex;
+  align-items: center;
+}
+
+.plan-card ul li::before {
+  content: "✔";
+  color: #16a34a;
+  font-weight: bold;
+  margin-right: 8px;
 }
 
 .plan-card button {
@@ -642,18 +683,13 @@ h2 {
   border: none;
   border-radius: 0.75rem;
   font-weight: 600;
-  background-color: #3b82f6;
+  background: #2563eb;
   color: white;
   transition: background-color 0.3s;
   cursor: pointer;
 }
 .plan-card button:hover {
-  background-color: #2563eb;
-}
-
-.plan-title {
-  font-size: 1.2rem;
-  font-weight: bold;
+  background: #1d4ed8;
 }
 
 

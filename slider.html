@@ -3,250 +3,286 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Image Slider</title>
-  <link rel="stylesheet" href="style.css">
+  <title>Pricing Plans</title>
   <style>
-    .slider-container {
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8fafc;
+      margin: 0;
+      padding: 40px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    /* Toggle Switch */
+    .toggle-container {
+      display: flex;
+      align-items: center;
+      margin-bottom: 30px;
+      font-weight: 600;
+      color: #1e293b;
+      gap: 10px;
+      font-size: 1.1rem;
+    }
+
+    .switch {
       position: relative;
-      max-width: 90%;
-      margin: auto;
-      overflow: hidden;
+      display: inline-block;
+      width: 60px;
+      height: 30px;
+    }
+
+    .switch input {
+      opacity: 0;
+      width: 0;
+      height: 0;
     }
 
     .slider {
-      display: flex;
-      transition: transform 0.5s ease-in-out;
-    }
-
-    .slide {
-      flex: 0 0 100%;
-      transition: transform 0.5s ease-in-out, opacity 0.5s ease-in-out;
-      text-align: center;
-      opacity: 0.5;
-      transform: scale(0.9);
-    }
-
-    .slide img {
-      width: 100%;
-      border-radius: 12px;
-      transition: transform 0.5s ease-in-out, box-shadow 0.5s ease-in-out;
-    }
-
-    /* Captions */
-    .caption {
-      margin-top: 10px;
-      font-size: 1rem;
-      color: #333;
-      display: block;
-      opacity: 0;
-      transition: opacity 0.5s ease-in-out;
-    }
-
-    .slide.active .caption {
-      opacity: 1;
-    }
-
-    .slide.active {
-      opacity: 1;
-      transform: scale(1);
-    }
-
-    /* Arrows */
-    .arrow {
       position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      background: rgba(0,0,0,0.5);
-      color: white;
-      border: none;
-      padding: 12px;
       cursor: pointer;
-      border-radius: 50%;
-      z-index: 10;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #2563eb;
+      transition: 0.4s;
+      border-radius: 34px;
     }
-    .arrow.left { left: 10px; }
-    .arrow.right { right: 10px; }
 
-    /* Dots */
-    .dots {
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 22px;
+      width: 22px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: 0.4s;
+      border-radius: 50%;
+    }
+
+    input:checked + .slider {
+      background-color: #16a34a;
+    }
+
+    input:checked + .slider:before {
+      transform: translateX(30px);
+    }
+
+    .pricing-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 25px;
+      max-width: 1100px;
+      width: 100%;
+    }
+
+    .pricing-card {
+      background: #fff;
+      border-radius: 20px;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+      padding: 30px;
+      text-align: center;
+      transition: transform 0.3s ease;
+    }
+
+    .pricing-card:hover {
+      transform: translateY(-8px);
+    }
+
+    .plan-title {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 10px;
+      color: #1e293b;
+    }
+
+    .price {
+      font-size: 2rem;
+      font-weight: 700;
+      color: #2563eb;
+      margin: 15px 0;
+      transition: opacity 0.4s ease-in-out;
+    }
+
+    .fade-out {
+      opacity: 0;
+    }
+
+    .fade-in {
+      opacity: 1;
+    }
+
+    .price span {
+      font-size: 0.9rem;
+      color: #475569;
+      font-weight: normal;
+    }
+
+    ul {
+      list-style: none;
+      padding: 0;
+      margin: 25px 0;
+      text-align: left;
+    }
+
+    ul li {
+      margin: 12px 0;
+      font-size: 0.95rem;
+      color: #334155;
       display: flex;
-      justify-content: center;
-      margin-top: 15px;
-    }
-    .dots button {
-      border: none;
-      background: gray;
-      width: 12px;
-      height: 12px;
-      margin: 0 5px;
-      border-radius: 50%;
-      cursor: pointer;
-    }
-    .dots button.active { background: black; }
-
-    /* Medium screens: show 2 slides */
-    @media (min-width: 600px) {
-      .slide { flex: 0 0 50%; }
+      align-items: center;
     }
 
-    /* Large screens: show 3 slides with center focus */
-    @media (min-width: 900px) {
-      .slide { flex: 0 0 33.33%; }
+    ul li::before {
+      content: "✔";
+      color: #16a34a;
+      font-weight: bold;
+      margin-right: 8px;
+    }
+
+    .btn {
+      display: inline-block;
+      text-decoration: none;
+      background: #2563eb;
+      color: #fff;
+      padding: 12px 24px;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      transition: background 0.3s ease;
+    }
+
+    .btn:hover {
+      background: #1d4ed8;
+    }
+
+    /* Highlighted plan */
+    .featured {
+      border: 2px solid #2563eb;
+      transform: scale(1.05);
+    }
+
+    .featured .plan-title {
+      color: #2563eb;
     }
   </style>
 </head>
 <body>
 
-  <div class="slider-container">
-    <button class="arrow left">&#10094;</button>
-    <div class="slider">
-      <div class="slide active">
-        <img src="https://picsum.photos/id/1015/800/500" alt="Image 1">
-        <div class="caption">Beautiful mountain landscape</div>
-      </div>
-      <div class="slide">
-        <img src="https://picsum.photos/id/1016/800/500" alt="Image 2">
-        <div class="caption">Serene forest view</div>
-      </div>
-      <div class="slide">
-        <img src="https://picsum.photos/id/1018/800/500" alt="Image 3">
-        <div class="caption">City skyline at dusk</div>
-      </div>
-      <div class="slide">
-        <img src="https://picsum.photos/id/1020/800/500" alt="Image 4">
-        <div class="caption">Peaceful beach scenery</div>
-      </div>
-      <div class="slide">
-        <img src="https://picsum.photos/id/1024/800/500" alt="Image 5">
-        <div class="caption">Calm desert horizon</div>
-      </div>
-    </div>
-    <button class="arrow right">&#10095;</button>
+  <!-- Toggle Switch -->
+  <div class="toggle-container">
+    <span>🇳🇬 ₦ Naira</span>
+    <label class="switch">
+      <input type="checkbox" id="currencySwitch" onchange="toggleCurrency()">
+      <span class="slider"></span>
+    </label>
+    <span>🇺🇸 $ USD</span>
   </div>
 
-  <div class="dots"></div>
+  <div class="pricing-container">
+
+    <!-- Basic Plan -->
+    <div class="pricing-card">
+      <h2 class="plan-title">🌐 Basic Plan</h2>
+      <p class="price" data-naira="₦150,000" data-usd="$299">₦150,000 <span>/ one-time</span></p>
+      <ul>
+        <li>3–5 Pages Website</li>
+        <li>Responsive Design</li>
+        <li>Basic SEO Setup</li>
+        <li>Contact Form & Social Links</li>
+        <li>1 Free Revision</li>
+        <li>30 Days Free Support</li>
+      </ul>
+      <a href="#" class="btn">Get Started</a>
+    </div>
+
+    <!-- Standard Plan (featured) -->
+    <div class="pricing-card featured">
+      <h2 class="plan-title">⚡ Standard Plan</h2>
+      <p class="price" data-naira="₦300,000" data-usd="$599">₦300,000 <span>/ one-time</span></p>
+      <ul>
+        <li>Up to 10 Pages Website</li>
+        <li>Responsive + Modern UI/UX</li>
+        <li>SEO Optimization (On-page)</li>
+        <li>Blog Setup & Contact Form</li>
+        <li>Social Media Integration</li>
+        <li>2 Free Revisions</li>
+        <li>60 Days Free Support</li>
+      </ul>
+      <a href="#" class="btn">Choose Standard</a>
+    </div>
+
+    <!-- Premium Plan -->
+    <div class="pricing-card">
+      <h2 class="plan-title">🚀 Premium Plan</h2>
+      <p class="price" data-naira="₦500,000" data-usd="$999">₦500,000 <span>/ one-time</span></p>
+      <ul>
+        <li>Unlimited Pages</li>
+        <li>Advanced Custom Design</li>
+        <li>Full SEO Optimization</li>
+        <li>E-commerce Integration</li>
+        <li>Blog & Newsletter Setup</li>
+        <li>3 Free Revisions</li>
+        <li>90 Days Priority Support</li>
+      </ul>
+      <a href="#" class="btn">Go Premium</a>
+    </div>
+
+  </div>
 
   <script>
-    const slider = document.querySelector('.slider');
-    const slides = document.querySelectorAll('.slide');
-    const leftArrow = document.querySelector('.arrow.left');
-    const rightArrow = document.querySelector('.arrow.right');
-    const dotsContainer = document.querySelector('.dots');
+    let isNaira = true;
 
-    let index = 1; // start from 1 because of cloning for infinite loop
-    let autoPlayInterval;
+    function toggleCurrency() {
+      const prices = document.querySelectorAll(".price");
+      const toggle = document.getElementById("currencySwitch");
 
-    // Clone first and last slide for infinite effect
-    const firstClone = slides[0].cloneNode(true);
-    const lastClone = slides[slides.length - 1].cloneNode(true);
-    firstClone.id = "first-clone";
-    lastClone.id = "last-clone";
-    slider.appendChild(firstClone);
-    slider.insertBefore(lastClone, slides[0]);
+      prices.forEach(price => {
+        price.classList.add("fade-out");
 
-    const allSlides = document.querySelectorAll('.slide');
-    const slideWidth = allSlides[0].clientWidth;
-    slider.style.transform = `translateX(${-slideWidth * index}px)`;
+        setTimeout(() => {
+          if (toggle.checked) {
+            price.innerHTML = price.getAttribute("data-usd") + ' <span>/ one-time</span>';
+            isNaira = false;
+          } else {
+            price.innerHTML = price.getAttribute("data-naira") + ' <span>/ one-time</span>';
+            isNaira = true;
+          }
+          price.classList.remove("fade-out");
+          price.classList.add("fade-in");
+        }, 400);
 
-    // Create dots
-    for (let i = 0; i < slides.length; i++) {
-      const dot = document.createElement('button');
-      if (i === 0) dot.classList.add('active');
-      dotsContainer.appendChild(dot);
-      dot.addEventListener('click', () => goToSlide(i + 1));
+        setTimeout(() => {
+          price.classList.remove("fade-in");
+        }, 800);
+      });
     }
 
-    const dots = document.querySelectorAll('.dots button');
-
-    function updateDots() {
-      dots.forEach(dot => dot.classList.remove('active'));
-      dots[(index - 1 + slides.length) % slides.length].classList.add('active');
-    }
-
-    function updateCaptions() {
-      allSlides.forEach(slide => slide.classList.remove('active'));
-      allSlides[index].classList.add('active');
-
-      // Large screen center focus
-      if (window.innerWidth >= 900) {
-        allSlides.forEach(slide => {
-          slide.style.opacity = "0.5";
-          slide.style.transform = "scale(0.9)";
-          slide.querySelector('img').style.boxShadow = "none";
+    // Auto-detect location and set default currency
+    window.onload = function() {
+      fetch("https://ipapi.co/json/")
+        .then(res => res.json())
+        .then(data => {
+          if (data.country_code === "NG") {
+            // Nigeria → Naira
+            document.getElementById("currencySwitch").checked = false;
+            toggleCurrency();
+          } else {
+            // Other countries → USD
+            document.getElementById("currencySwitch").checked = true;
+            toggleCurrency();
+          }
+        })
+        .catch(() => {
+          // fallback = Naira
+          document.getElementById("currencySwitch").checked = false;
+          toggleCurrency();
         });
-
-        allSlides[index].style.opacity = "1";
-        allSlides[index].style.transform = "scale(1.1)";
-        allSlides[index].querySelector('img').style.boxShadow = "0 8px 20px rgba(0,0,0,0.2)";
-      } else {
-        allSlides.forEach((slide, i) => {
-          slide.style.opacity = i === index ? "1" : "0.5";
-          slide.style.transform = i === index ? "scale(1)" : "scale(0.9)";
-          slide.querySelector('img').style.boxShadow = "none";
-        });
-      }
-    }
-
-    function goToSlide(i) {
-      index = i;
-      slider.style.transition = "transform 0.5s ease-in-out";
-      slider.style.transform = `translateX(${-slideWidth * index}px)`;
-      updateDots();
-      updateCaptions();
-    }
-
-    function nextSlide() {
-      if (index >= allSlides.length - 1) return;
-      index++;
-      goToSlide(index);
-    }
-
-    function prevSlide() {
-      if (index <= 0) return;
-      index--;
-      goToSlide(index);
-    }
-
-    rightArrow.addEventListener('click', nextSlide);
-    leftArrow.addEventListener('click', prevSlide);
-
-    slider.addEventListener('transitionend', () => {
-      if (allSlides[index].id === firstClone.id) {
-        slider.style.transition = "none";
-        index = 1;
-        slider.style.transform = `translateX(${-slideWidth * index}px)`;
-      }
-      if (allSlides[index].id === lastClone.id) {
-        slider.style.transition = "none";
-        index = allSlides.length - 2;
-        slider.style.transform = `translateX(${-slideWidth * index}px)`;
-      }
-    });
-
-    // Swipe support for mobile
-    let startX = 0;
-    slider.addEventListener('touchstart', e => startX = e.touches[0].clientX);
-    slider.addEventListener('touchend', e => {
-      let endX = e.changedTouches[0].clientX;
-      if (startX - endX > 50) nextSlide();
-      if (endX - startX > 50) prevSlide();
-    });
-
-    // Auto-play with pause on hover
-    function startAutoPlay() {
-      autoPlayInterval = setInterval(nextSlide, 4000);
-    }
-
-    function stopAutoPlay() {
-      clearInterval(autoPlayInterval);
-    }
-
-    document.querySelector('.slider-container').addEventListener('mouseenter', stopAutoPlay);
-    document.querySelector('.slider-container').addEventListener('mouseleave', startAutoPlay);
-
-    // Initialize captions and focus state
-    updateCaptions();
-    startAutoPlay();
+    };
   </script>
+
 </body>
 </html>

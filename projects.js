@@ -67,6 +67,16 @@ const graphics_projects = [
     name: `Montels Academy Flyer`,
     description: ""
   },
+  {
+    image: `medias/Ikhide graphics5.jpg`,
+    name: `UI Design`,
+    description: ""
+  },
+  {
+    image: `medias/Ikhide graphics6.jpg`,
+    name: `JMK Logo`,
+    description: ""
+  },
 ]
 
 
@@ -147,7 +157,7 @@ videography_projects.forEach((videography_project) => {
     <div class="writeups" onclick= "changingVideo('${videography_project.image}','${videography_project.name}','${videography_project.description}','${videography_project.image}')">
     <h3>${videography_project.name}</h3>
       <p>${videography_project.description}</p>
-      <button onclick="window.open('${videography_project.image}')" class="visit-btn">View &#10095;</button>
+      <button onclick="closingOverlay(); window.open('${videography_project.image}')" class="visit-btn">View &#10095;</button>
     </div>
   </div>
   `
@@ -185,15 +195,23 @@ function changingVideo(video_source, title, description, link){
   overlay_description.innerHTML = description;
   overlay.classList.remove('disappear')
   overlay.classList.add('appear')
+
+
+  //VIEWING BUTTON
+  overlay_button.addEventListener("click", () => {
+    closingOverlay()
+    window.open(`${link}`)
+  })
 };
 
 const close_btn = document.querySelector('.close-button')
 
-close_btn.addEventListener('click', ()=> {
+function closingOverlay(){
   overlay.classList.remove('appear')
   overlay.classList.add('disappear')
-  overlay_video.src = '';
-})
+  overlay_video.src = ''
+};
+
 
 
 

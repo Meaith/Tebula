@@ -94,11 +94,11 @@
         <h3>Label/Name</h3>
         <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Fugit ducimus quibusdam aut, quos, cum mollitia amet rem harum eaque, laborum labore. Nesciunt deleniti incidunt doloremque consequatur tenetur, perferendis alias sapiente!</p>
         
-        <button class="close-button">
+        <button class="close-button" onclick="closingOverlay()">
             &times;
         </button>
 
-        <button onclick="window.open('${videography_project.image}')" class="visit-btn">View &#10095;</button>
+        <button class="visit-btn">View &#10095;</button>
       </div>
     </div>
   </div>
@@ -167,42 +167,38 @@
     <h2 class="section-title">Choose Your Plan</h2>
 
     <!-- Toggle Switch -->
-    <div class="billing-toggle">
-      <div class="toggle-wrapper">
-        <span class="toggle-label">Monthly</span>
-        <div class="toggle-button" onclick="toggleBillingUI(this)">
-          <div class="toggle-thumb"></div>
-        </div>
-        <span class="toggle-label">Yearly</span>
-      </div>
+    <div class="toggle-container">
+      <span>🇳🇬 ₦ Naira</span>
+      <label class="switch">
+        <input type="checkbox" id="currencySwitch" onchange="toggleCurrency()">
+        <span class="toggle-slider"></span>
+      </label>
+      <span>🇺🇸 $ USD</span>
     </div>
 
     <div class="plan-container">
       <!-- Starter Plan -->
       <div class="plan-card fade-in">
-        <img src="starter-icon.svg" alt="Starter Icon" class="plan-icon">
         <h3>Starter</h3>
-        <p class="price" data-monthly="₦0" data-yearly="₦0">₦0<span>/month</span></p>
+        <p class="price" data-naira="₦60,000" data-usd="$39">₦60,000 <span>/ one-time</span></p>
         <ul>
-          <li>1 Design or Edit per Month</li>
-          <li>Basic Website Template Access</li>
-          <li>Community Support</li>
-          <li>Watermarked Deliverables</li>
+          <li>A 3 page website</li>
+          <li>Logo with once review</li>
+          <li>A Flyer with once review</li>
         </ul>
-        <button onclick="goToCheckout('starter')">Get Started Free</button>
+        <button onclick="goToCheckout('starter')">Get Started</button>
       </div>
 
       <!-- Pro Plan -->
       <div class="plan-card fade-in delay-100">
-        <img src="pro-icon.svg" alt="Pro Icon" class="plan-icon">
         <h3>Pro</h3>
-        <p class="price" data-monthly="₦118,500" data-yearly="₦1,185,000">₦118,500<span>/month</span></p>
+        <p class="price" data-naira="₦118,500" data-usd="$75">₦118,500 <span>/ one-time</span></p>
         <ul>
-          <li>Up to 10 Projects/Month</li>
           <li>Custom Website Design (Up to 5 Pages)</li>
+          <li>Bi-monthly maintenance and changes on website</li>
           <li>Social Media Graphics & Reels</li>
           <li>2 Video Edits (Up to 2 Min Each)</li>
-          <li>3-Day Turnaround</li>
+          <li>Logo and Flyer with multiple reviews</li>
           <li>Email Support</li>
         </ul>
         <button onclick="goToCheckout('pro')">Choose Plan</button>
@@ -210,15 +206,15 @@
 
       <!-- Enterprise Plan -->
       <div class="plan-card fade-in delay-200">
-        <img src="enterprise-icon.svg" alt="Enterprise Icon" class="plan-icon">
         <h3>Enterprise</h3>
-        <p class="price" data-monthly="Custom" data-yearly="Custom">Custom Pricing</p>
+        <p class="price" data-naira="Custom" data-usd="Custom">Custom <span>/ one-time</span></p>
         <ul>
           <li>Unlimited Projects</li>
           <li>Custom Web Solutions (eComm, Portfolios, etc.)</li>
+          <li>Monthly maintenance and changes on website</li>
           <li>Brand Identity Kit & Graphic Suite</li>
           <li>Full-Length Videos & Commercial Edits</li>
-          <li>24-48 Hour Turnaround</li>
+          <li>Logo and Flyer with unlimited reviews</li>
           <li>Dedicated Manager</li>
         </ul>
         <button onclick="goToCheckout('enterprise')">Contact Sales</button>
@@ -232,40 +228,65 @@
   <!-- <h1 style="text-align:center;">Our Subscription Plans</h1> -->
   <div class="plan-container">
 
-    <div class="plan-card fade-in delay-100">
-      <div class="plan-title">Web Basic</div>
-      <p class="price" data-monthly="₦148,500" data-yearly="₦1,485,000">₦148,500<span>/month</span></p>
+    <div class="plan-card">
+      <h3 class="plan-title">🌐 Web Basic Plan</h3>
+      <p class="price" data-naira="₦50,000" data-usd="$32">₦50,000 <span>/ one-time</span></p>
       <ul>
-        <li>Up to 10 Projects/Month</li>
-        <li>Custom Website Design (Up to 5 Pages)</li>
-        <li>Social Media Graphics & Reels</li>
-        <li>2 Video Edits (Up to 2 Min Each)</li>
-        <li>3-Day Turnaround</li>
-        <li>Email Support</li>
+        <li>A 1-5 page website</li>
+        <li>Mobile friendly design</li>
+        <li>Basic Hosting</li>
+        <li>Social Media Links</li>
+        <li>Basic SEO Setup</li>
+        <li>Contact Form & Social Links</li>
+        <li>1 Free Revision</li>
+        <li>30 Days Free Support</li>
       </ul>
-
-      <button class="plan-button" onclick="goToCheckout('web-basic')">Choose Plan</button>
+      <button>Get Started</button>
     </div>
 
-    <div class="plan-card fade-in delay-100">
-      <div class="plan-title">Web Premium</div>
-      <p class="price" data-monthly="₦448,500" data-yearly="₦4,485,000">₦448,500<span>/month</span></p>
+    <!-- Standard Plan (featured) -->
+    <div class="plan-card">
+      <h3 class="plan-title">⚡Web Standard Plan</h3>
+      <p class="price" data-naira="₦180,000" data-usd="$112">₦180,000 <span>/ one-time</span></p>
       <ul>
-        <li>Up to 10 Projects/Month</li>
-        <li>Custom Website Design (Up to 5 Pages)</li>
-        <li>Social Media Graphics & Reels</li>
-        <li>2 Video Edits (Up to 2 Min Each)</li>
-        <li>3-Day Turnaround</li>
-        <li>Email Support</li>
+        <li>Custom Website Design (Up to 10 Pages)</li>
+        <li>Mobile friendly design</li>
+        <li>Social Media Links</li>
+        <li>Google Map integration</li>
+        <li>Custom Design and Branding</li>
+        <li>Responsive + Modern UI/UX</li>
+        <li>SEO Optimization (On-page)</li>
+        <li>Blog Setup & Contact Form</li>
+        <li>Social Media Integration</li>
+        <li>2 Free Revisions</li>
+        <li>3 Month free Support and Maintenance</li>
       </ul>
-
-
-      <button class="plan-button" onclick="goToCheckout('web-premium')">Choose Plan</button>
+      <button>Choose Standard</button>
     </div>
+
+    <!-- Premium Plan -->
+    <div class="plan-card">
+      <h3 class="plan-title">🚀 Web Premium Plan</h3>
+      <p class="price" data-naira="₦500,000" data-usd="$320">₦500,000 <span>/ one-time</span></p>
+      <ul>
+        <li>Custom Website Design (Up to 10 Pages)</li>
+        <li>Mobile friendly design</li>
+        <li>Social Media Links</li>
+        <li>Google Map integration</li>
+        <li>Advanced Custom Design</li>
+        <li>Full SEO Optimization</li>
+        <li>E-commerce Integration</li>
+        <li>Blog & Newsletter Setup</li>
+        <li>5 Free Revisions</li>
+        <li>3 Month free Support and Maintenance</li>
+      </ul>
+      <button>Go Premium</button>
+    </div>
+
 
     <div class="plan-card fade-in delay-100">
       <div class="plan-title">Graphics Basic</div>
-      <p class="price" data-monthly="₦88,500" data-yearly="₦885,000">₦88,500<span>/month</span></p>
+      <p class="price" data-naira="₦118,500" data-usd="$999">₦118,500 <span>/ one-time</span></p>
       <ul>
         <li>Up to 10 Projects/Month</li>
         <li>Custom Website Design (Up to 5 Pages)</li>
@@ -281,7 +302,7 @@
 
     <div class="plan-card fade-in delay-100">
       <div class="plan-title">Graphics Pro</div>
-      <p class="price" data-monthly="₦223,500" data-yearly="₦2,235,000">₦223,500<span>/month</span></p>
+      <p class="price" data-naira="₦118,500" data-usd="$999">₦118,500 <span>/ one-time</span></p>
 
       <ul>
         <li>Up to 10 Projects/Month</li>
@@ -297,7 +318,7 @@
 
     <div class="plan-card fade-in delay-100">
       <div class="plan-title">Video Basic</div>
-      <p class="price" data-monthly="₦133,500" data-yearly="₦1,335,000">₦133,500<span>/month</span></p>
+      <p class="price" data-naira="₦118,500" data-usd="$999">₦118,500 <span>/ one-time</span></p>
       <ul>
         <li>Up to 10 Projects/Month</li>
         <li>Custom Website Design (Up to 5 Pages)</li>
@@ -312,7 +333,7 @@
 
     <div class="plan-card fade-in delay-100">
       <div class="plan-title">Video Pro</div>
-      <p class="price" data-monthly="₦298,500" data-yearly="₦2,985,000">₦298,500<span>/month</span></p>
+      <p class="price" data-naira="₦118,500" data-usd="$999">₦118,500 <span>/ one-time</span></p>
       <ul>
         <li>Up to 10 Projects/Month</li>
         <li>Custom Website Design (Up to 5 Pages)</li>

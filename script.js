@@ -32,23 +32,60 @@ document.querySelectorAll('a[href^="#"]').forEach(link=>{
   });
 });
 
+
+
 //subscription plans
-// Monthly vs Yearly toggle
-function toggleBillingUI(element) {
-  element.classList.toggle('active');
-  const isYearly = element.classList.contains('active');
-  const prices = document.querySelectorAll('.price');
+// Naira vs Dollars toggle
+let isNaira = true;
+
+function toggleCurrency() {
+  const prices = document.querySelectorAll(".price");
+  const toggle = document.getElementById("currencySwitch");
 
   prices.forEach(price => {
-    const monthly = price.getAttribute('data-monthly');
-    const yearly = price.getAttribute('data-yearly');
-    if (monthly && yearly) {
-      price.innerHTML = isYearly
-        ? yearly + '<span>/year</span>'
-        : monthly + '<span>/month</span>';
-    }
+    price.classList.add("fade-out");
+
+    setTimeout(() => {
+      if (toggle.checked) {
+        price.innerHTML = price.getAttribute("data-usd") + ' <span>/ one-time</span>';
+        isNaira = false;
+      } else {
+        price.innerHTML = price.getAttribute("data-naira") + ' <span>/ one-time</span>';
+        isNaira = true;
+      }
+      price.classList.remove("fade-out");
+      price.classList.add("fade-in");
+    }, 400);
+
+    setTimeout(() => {
+      price.classList.remove("fade-in");
+    }, 800);
   });
 }
+
+
+// Auto-detect location and set default currency
+window.onload = function() {
+  fetch("https://ipapi.co/json/")
+    .then(res => res.json())
+    .then(data => {
+      if (data.country_code === "NG") {
+        // Nigeria → Naira
+        document.getElementById("currencySwitch").checked = false;
+        toggleCurrency();
+      } else {
+        // Other countries → USD
+        document.getElementById("currencySwitch").checked = true;
+        toggleCurrency();
+      }
+    })
+    .catch(() => {
+      // fallback = Naira
+      document.getElementById("currencySwitch").checked = false;
+      toggleCurrency();
+    });
+};
+
 
 // checkout function
 function goToCheckout(plan,time) {
