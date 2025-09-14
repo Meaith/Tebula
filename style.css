@@ -265,7 +265,6 @@ h2 {
 .overlay-view video, .overlay-view img{
   width: 50%;
   height: 80%;
-  border-radius: 20px;
   object-fit: contain;
 }
 
@@ -535,6 +534,7 @@ h2 {
 /* PRICING SECTION. */
 .pricing-section {
   padding: 2rem;
+  padding-top: 70px;
 }
 
 .section-title {
@@ -866,17 +866,93 @@ button[type=submit]:hover {
   opacity:0.9; 
 }
 
+
+.trademark{
+  text-align: center;
+  padding: 40px 20px;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  box-shadow: 0px -3px 25px rgba(69, 65, 65, 0.3);
+}
+
+.trademark .marketting{
+  max-width: 350px;
+  text-align: left;
+}
+
+.trademark .marketting h2{
+  font-size: 1.6rem;
+}
+
+.trademark .marketting p a{
+  font-size: 1.3rem;
+  color: #2563eb;
+}
+
+.trademark .terms{
+  padding: 0 10px;
+  width: 250px;
+  text-align: right;
+}
+
+.trademark .terms ul{
+  display: flex;
+  flex-direction: column;
+  gap: 15px 0;
+}
+
+.trademark .terms ul li{
+  list-style: none;
+}
+
+.trademark .terms a{
+  text-decoration: none;
+  color: white;
+  transition: .5s;
+}
+
+.trademark .terms a:hover{
+  letter-spacing: 3px;
+}
+
+.trademark img{
+  width: 200px;
+  border-radius: 50%;
+}
+
+
 footer { 
   background: var(--footer-bg); 
   color: #fff; 
-  text-align:center; 
   padding:20px 0; 
 }
 
 footer p{ 
   width: 100%;
+  text-align:center; 
 }
 
+@media screen and (max-width: 880px) {
+  .trademark .terms{
+    padding: 20px 0 0;
+    text-align: center;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media screen and (max-width: 684px) {
+  .trademark{
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px 0;
+  }
+}
 
 
 
